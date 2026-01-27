@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Page</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fffaf2;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #ffcc70;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h2 {
+      margin: 0;
+      color: #5a3e2b;
+    }
+
+    header a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #5a3e2b;
+    }
+
+    .container {
+      padding: 30px;
+    }
+
+    section {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    h3 {
+      margin-top: 0;
+      color: #eb9058;
+    }
+
+    .user-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .user-info img {
+      width: 120px;
+      border-radius: 50%;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #ffe5b4;
+    }
+
+    table img {
+      width: 70px;
+      border-radius: 8px;
+    }
+
+    .favourite {
+      width: 30px;
+      vertical-align: middle;
+    }
+
+    select, button {
+      padding: 8px;
+      margin-right: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #ff8c42;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ff7a24;
+    }
+
+    a {
+      color: #ff8c42;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <h2>Welcome Lama!</h2>
+    <a href="index.html">Log-out</a>
+  </header>
+
+  <div class="container">
+
+    <!-- User Information -->
+    <section>
+      <h3>My Information</h3>
+      <div class="user-info">
+        <div>
+          <p><strong>Name:</strong> Lama Almubarak</p>
+          <p><strong>Email:</strong> lama@gmail.com</p>
+        </div>
+        <img src="images/lama.jpg" alt="User Photo">
+      </div>
+    </section>
+
+    <!-- My Recipes Summary -->
+    <section>
+      <a href="my-recipes.html"><h3>My Recipes</h3></a>
+      <p>Total Recipes: 15</p>
+      <p>Total Likes: 132</p>
+    </section>
+
+    <!-- All Available Recipes -->
+    <section>
+      <h3>All Available Recipes</h3>
+
+      <select>
+        <option>All Categories</option>
+        <option>Breakfast</option>
+        <option>Lunch</option>
+        <option>Desserts</option>
+      </select>
+      <button>Filter</button>
+
+      <table>
+        <tr>
+          <th>Recipe Name</th>
+          <th>Photo</th>
+          <th>Creator</th>
+          <th>Likes</th>
+          <th>Category</th>
+        </tr>
+        <tr>
+          <td>
+            <a href="view-recipe.html">Pear & chocolate flapjacks</a>
+          </td>
+          <td>
+            <img src="images/Pear-and-chocolate-flapjacks.jpg" alt="Recipe">
+          </td>
+          <td>
+            Cassie Best <br>
+            <img src="images/curly.jpg" alt="Creator">
+          </td>
+          <td>40</td>
+          <td>Dessert</td>
+        </tr>
+        <tr>
+          <td>
+            <a href="view-recipe.html">Fruity flapjack cookies</a>
+          </td>
+          <td>
+            <img src="images/Fruity-flapjack-cookies.jpg" alt="Recipe">
+          </td>
+          <td>
+            Barney Desmazery <br>
+            <img src="images/curly.jpg" alt="Creator">
+          </td>
+          <td>32</td>
+          <td>Dessert</td>
+        </tr>
+        <tr>
+          <td>
+            <a href="view-recipe.html">Cacio e pepe</a>
+          </td>
+          <td>
+            <img src="images/Cacio-e-Pepe.jpg" alt="Recipe">
+          </td>
+          <td>
+            Good Food team <br>
+            <img src="images/curly.jpg" alt="Creator">
+          </td>
+          <td>25</td>
+          <td>Lunch</td>
+        </tr>
+        </tr>
+        <tr>
+          <td>
+            <a href="view-recipe.html">Lighter chicken tacos</a>
+          </td>
+          <td>
+            <img src="images/lighter-chicken-tacos.jpg" alt="Recipe">
+          </td>
+          <td>
+            Angela Nilsen <br>
+            <img src="images/curly.jpg" alt="Creator">
+          </td>
+          <td>29</td>
+          <td>Lunch</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Favourite Recipes -->
+    <section>
+      <div>
+        <h3>My Favourite Recipes <img class="favourite" src="images/heart.png" alt="heart"></h3>
+        
+      </div>
+
+      <table>
+        <tr>
+          <th>Recipe Name</th>
+          <th>Photo</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td>
+            <a href="view-recipe.html">Pear & chocolate flapjacks</a>
+          </td>
+          <td>
+            <img src="images/Pear-and-chocolate-flapjacks.jpg" alt="Recipe">
+          </td>
+          <td>
+            <a href="user.html">Remove</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="view-recipe.html">Lighter chicken tacos</a>
+          </td>
+          <td>
+            <img src="images/lighter-chicken-tacos.jpg" alt="Recipe">
+          </td>
+          <td>
+            <a href="user.html">Remove</a>
+          </td>
+        </tr>
+      </table>
+    </section>
+
+  </div>
+
+</body>
+</html>
