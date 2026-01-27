@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Log In</title>
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body class="LogInPage-Tala">
+
+  <main>
+    <h1>Log In</h1>
+    <img src="images/chefLogo.png" alt="" class="form-mascot">
+
+    <form method="POST" action="user.html"> <!--if admin, the form action below will override it so dw-->
+
+      <p>
+        <label for="loginEmail">Email Address</label><br>
+        <input type="email" id="loginEmail" name="email" required>
+      </p>
+
+      <p>
+        <label for="loginPassword">Password</label><br>
+        <input type="password" id="loginPassword" name="password" required>
+      </p> 
+
+      <p class="signup-link">
+        Don’t have an account? <a href="SignUp.html">Sign up</a>
+      </p> <br>
+
+      <p>
+        <button type="submit" formaction="user.html">Log In as User</button>
+        <button type="submit" formaction="admin.html">Log In as Admin</button>
+      </p>
+
+    </form>
+  </main>
+
+</body>
+</html>
