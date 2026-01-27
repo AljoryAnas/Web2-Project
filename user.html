@@ -5,117 +5,142 @@
   <title>User Page</title>
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #fffaf2;
-      margin: 0;
-      padding: 0;
-    }
+body {
+  font-family: Arial, sans-serif;
+  background-color: #E9F4FA;
+  margin: 0;
+  padding: 0;
+  color: #593C29;
+}
 
-    header {
-      background-color: #ffcc70;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+header {
+  background-color: #FFFFFF;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #D7E6EF;
+}
 
-    header h2 {
-      margin: 0;
-      color: #5a3e2b;
-    }
+header h2 {
+  margin: 0;
+  color: #619643;
+}
 
-    header a {
-      text-decoration: none;
-      font-weight: bold;
-      color: #5a3e2b;
-    }
+.brand {
+  color: #F98F1E;
+  font-size: 19px;
+  vertical-align: bottom;
+  font-weight: 600;
+}
 
-    .container {
-      padding: 30px;
-    }
+header a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #417499;
+}
 
-    section {
-      background-color: #ffffff;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 25px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    }
+header a:hover {
+  color: #F98F1E;
+}
 
-    h3 {
-      margin-top: 0;
-      color: #eb9058;
-    }
+.container {
+  padding: 30px;
+}
 
-    .user-info {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+section {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 6px 14px rgba(65,116,153,0.12);
+  border: 1px solid #D7E6EF;
+}
 
-    .user-info img {
-      width: 120px;
-      border-radius: 50%;
-    }
+h3 {
+  margin-top: 0;
+  color: #417499;
+}
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 15px;
-    }
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    th, td {
-      border: 1px solid #ddd;
-      padding: 10px;
-      text-align: center;
-    }
+.user-info img {
+  width: 120px;
+  border-radius: 50%;
+  border: 3px solid #D7E6EF;
+}
 
-    th {
-      background-color: #ffe5b4;
-    }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
 
-    table img {
-      width: 70px;
-      border-radius: 8px;
-    }
+th, td {
+  border: 1px solid #D7E6EF;
+  padding: 10px;
+  text-align: center;
+}
 
-    .favourite {
-      width: 30px;
-      vertical-align: middle;
-    }
+th {
+  background-color: #EAF4FB;
+  color: #593C29;
+}
 
-    select, button {
-      padding: 8px;
-      margin-right: 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
+table img {
+  width: 80px;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid #D7E6EF;
+}
 
-    button {
-      background-color: #ff8c42;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
+.favourite {
+  width: 30px;
+  vertical-align: middle;
+}
 
-    button:hover {
-      background-color: #ff7a24;
-    }
+select, button {
+  padding: 8px;
+  margin-right: 10px;
+  border-radius: 8px;
+  border: 1px solid #D7E6EF;
+}
 
-    a {
-      color: #ff8c42;
-      text-decoration: none;
-      font-weight: bold;
-    }
-  </style>
+button {
+  background-color: #F98F1E;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #619643;
+}
+
+a {
+  color: #F98F1E;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #619643;
+}
+
+</style>
+
 </head>
 
 <body>
 
   <!-- Header -->
   <header>
-    <h2>Welcome Lama!</h2>
+    <h2>Welcome Lama! <span class="brand">| KiddoBites</span></h2>
     <a href="index.html">Log-out</a>
   </header>
 
