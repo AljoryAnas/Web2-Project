@@ -61,6 +61,14 @@ a:hover {
   color: #619643;
 }
 
+footer {
+  background-color: #FFFFFF;
+  text-align: center;
+  padding: 15px;
+  border-top: 3px solid #D7E6EF;
+  font-size: 0.9rem;
+  color: #593C29;
+}
 
 /* =========================== Aljoury Styles =========================== */
 .home-page .home-container {
@@ -109,15 +117,6 @@ a:hover {
 
 .home-page .btn-main:hover {
   background-color: #619643;
-}
-
-.home-page .main-footer {
-  background-color: #FFFFFF;
-  text-align: center;
-  padding: 15px;
-  border-top: 3px solid #D7E6EF;
-  font-size: 0.9rem;
-  color: #593C29;
 }
 /* =========================== Aljoury End =========================== */
 
