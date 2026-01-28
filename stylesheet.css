@@ -85,12 +85,13 @@ footer {
 
 .home-page .hero-logo {
   width: 140px;
-  margin-bottom: 20px;
+  margin-bottom: 0.1em;
 }
 
 .home-page .hero h1 {
   color: #3e4b85;
   margin-bottom: 10px;
+  margin-top: 0.3em;
 }
 
 .home-page .hero-text {
