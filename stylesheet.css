@@ -8,9 +8,9 @@
   display: grid;
   place-items: center;
   padding: 24px;
-  font-family: system-ui, Arial, sans-serif; /*change to team's*/
+  font-family: system-ui, Arial, sans-serif; 
 
-  background: linear-gradient(135deg, #f0cb8b, #e6f7ff,#bff2af); /*change to team's*/
+  background-color: #E9F4FA;
 }
 
 /*  form's card */
