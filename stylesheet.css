@@ -1,6 +1,6 @@
 /* =========================== Global =========================== */
 body {
-  font-family: system-ui, Arial, sans-serif; /*before: Arial, sans-serif;*/
+  font-family: system-ui, Arial, sans-serif; 
   background-color: #E9F4FA;
   margin: 0;
   padding: 0;
@@ -13,6 +13,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;  /* Added position relative */
   border-bottom: 3px solid #D7E6EF;
 }
 
@@ -29,17 +30,12 @@ header h2 {
 }
 
 header a {
-  text-decoration: none;
   font-weight: bold;
   color: #2b2b5a; /*before : #417499*/
 }
 
 header a:hover {
   color: #F98F1E;
-}
-
-.container {
-  padding: 30px;
 }
 
 section {
@@ -51,9 +47,13 @@ section {
   border: 1px solid #D7E6EF;
 }
 
+h3 {
+  margin-top: 0;
+  color: #2b2b5a; /*before : #417499*/
+}
+
 a {
   color: #F98F1E;
-  text-decoration: none;
   font-weight: bold;
 }
 
@@ -270,3 +270,95 @@ footer {
 }
 
 /*------------------------------------------ TALA END ------------------------------------*/
+
+
+/* =========================== Lama's Styles (user page) =========================== */
+.my-recipes-link {
+  font-weight: bold;
+  color: #2b2b5a; /*before : #417499*/
+}
+
+.my-recipes-link:hover {
+  color: #F98F1E;
+}
+.welcome {
+  font-size: 22px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: colorChange 6s infinite;
+}
+
+@keyframes colorChange {
+  0%   { color: #619643; }   
+  33%  { color: #343462; }  
+  66%  { color: #F98F1E; }  
+  100% { color: #619643; }  
+}
+
+.container {
+  padding: 30px;
+}
+
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-info img {
+  width: 120px;
+  border-radius: 50%;
+  border: 3px solid #D7E6EF;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+th, td {
+  border: 1px solid #D7E6EF;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #EAF4FB;
+  color: #593C29;
+}
+
+table img {
+  width: 80px;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid #D7E6EF;
+}
+
+.favourite {
+  width: 30px;
+  vertical-align: middle;
+}
+
+select, button {
+  padding: 8px;
+  margin-right: 10px;
+  border-radius: 8px;
+  border: 1px solid #D7E6EF;
+}
+
+button {
+  background-color: #F98F1E;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #619643;
+}
+/* =========================== Lama's Styles End =========================== */
+
+

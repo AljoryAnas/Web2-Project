@@ -3,163 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>User Page</title>
-
-  <style>
-body {
-  font-family: system-ui, Arial, sans-serif; 
-  background-color: #E9F4FA;
-  margin: 0;
-  padding: 0;
-  color: #593C29;
-}
-
-header {
-  background-color: #FFFFFF;
-  padding: 15px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 3px solid #D7E6EF;
-}
-
-header h2 {
-  margin: 0;
-  color: #343462; /
-}
-
-.welcome {
-  font-size: 22px;
-  animation: colorChange 6s infinite;
-}
-
-@keyframes colorChange {
-  0%   { color: #619643; }   
-  33%  { color: #343462; }  
-  66%  { color: #F98F1E; }  
-  100% { color: #619643; }  
-}
-
-.brand {
-  color: #F98F1E;
-  font-size: 16px;
-  vertical-align: bottom;
-  font-weight: 600;
-}
-
-.brand2 {
-  color: #619643;
-  font-size: 18px;
-  vertical-align: bottom;
-  font-weight: 700;
-}
-
-header a {
-  text-decoration: none;
-  font-weight: bold;
-  color: #2b2b5a; /*before : #417499*/
-}
-
-header a:hover {
-  color: #F98F1E;
-}
-
-.container {
-  padding: 30px;
-}
-
-section {
-  background-color: #FFFFFF;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 25px;
-  box-shadow: 0 6px 14px rgba(65,116,153,0.12);
-  border: 1px solid #D7E6EF;
-}
-
-h3 {
-  margin-top: 0;
-  color: #2b2b5a; /*before : #417499*/
-}
-
-.user-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.user-info img {
-  width: 120px;
-  border-radius: 50%;
-  border: 3px solid #D7E6EF;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 15px;
-}
-
-th, td {
-  border: 1px solid #D7E6EF;
-  padding: 10px;
-  text-align: center;
-}
-
-th {
-  background-color: #EAF4FB;
-  color: #593C29;
-}
-
-table img {
-  width: 80px;
-  height: auto;
-  border-radius: 10px;
-  border: 2px solid #D7E6EF;
-}
-
-.favourite {
-  width: 30px;
-  vertical-align: middle;
-}
-
-select, button {
-  padding: 8px;
-  margin-right: 10px;
-  border-radius: 8px;
-  border: 1px solid #D7E6EF;
-}
-
-button {
-  background-color: #F98F1E;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-button:hover {
-  background-color: #619643;
-}
-
-a {
-  color: #F98F1E;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-a:hover {
-  color: #619643;
-}
-
-</style>
-
+  <link rel="stylesheet" href="stylesheet.css">
 </head>
 
 <body>
 
   <!-- Header -->
   <header> 
-    <h2 class="welcome">Welcome Lama! <span class="brand">| Kiddo</span><span class="brand2">Bites</span></h2>
+      <h2>
+        <span class="brand">Kiddo</span>Bites
+      </h2>
+      <h2 class="welcome">Welcome Lama! </h2>
     <a href="index.html">Log-out</a>
   </header>
 
@@ -179,7 +33,7 @@ a:hover {
 
     <!-- My Recipes Summary -->
     <section>
-      <a href="my-recipes.html"><h3>My Recipes</h3></a>
+      <a class="my-recipes-link" href="my-recipes.html"><h3 class="my-recipes-link">My Recipes</h3></a>
       <p>Total Recipes: 15</p>
       <p>Total Likes: 132</p>
     </section>
@@ -317,6 +171,11 @@ a:hover {
     </section>
 
   </div>
+  
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 KiddoBites — Healthy Yummies for Tiny Tummies</p>
+  </footer>
 
 </body>
 </html>
