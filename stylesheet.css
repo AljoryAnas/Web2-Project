@@ -1,3 +1,126 @@
+/* =========================== Global =========================== */
+body {
+  font-family: system-ui, Arial, sans-serif; /*before: Arial, sans-serif;*/
+  background-color: #E9F4FA;
+  margin: 0;
+  padding: 0;
+  color: #593C29;
+}
+
+header {
+  background-color: #FFFFFF;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #D7E6EF;
+}
+
+header h2 {
+  margin: 0;
+  color: #619643;
+}
+
+.brand {
+  color: #F98F1E;
+  font-size: 19px;
+  vertical-align: bottom;
+  font-weight: 600;
+}
+
+header a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #2b2b5a; /*before : #417499*/
+}
+
+header a:hover {
+  color: #F98F1E;
+}
+
+.container {
+  padding: 30px;
+}
+
+section {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 6px 14px rgba(65,116,153,0.12);
+  border: 1px solid #D7E6EF;
+}
+
+a {
+  color: #F98F1E;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #619643;
+}
+
+
+/* =========================== Aljoury Styles =========================== */
+.home-page .home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 75vh;
+}
+
+.home-page .hero {
+  text-align: center;
+  max-width: 600px;
+}
+
+.home-page .hero-logo {
+  width: 140px;
+  margin-bottom: 20px;
+}
+
+.home-page .hero h1 {
+  color: #2b2b5a;
+  margin-bottom: 10px;
+}
+
+.home-page .hero-text {
+  font-size: 1.05rem;
+  margin-bottom: 30px;
+  color: #593C29;
+}
+
+.home-page .home-actions {
+  margin-top: 20px;
+}
+
+.home-page .btn-main {
+  display: inline-block;
+  padding: 12px 40px;
+  border-radius: 25px;
+  background-color: #F98F1E;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-decoration: none;
+  box-shadow: 0 6px 14px rgba(65,116,153,0.18);
+}
+
+.home-page .btn-main:hover {
+  background-color: #619643;
+}
+
+.home-page .main-footer {
+  background-color: #FFFFFF;
+  text-align: center;
+  padding: 15px;
+  border-top: 3px solid #D7E6EF;
+  font-size: 0.9rem;
+  color: #593C29;
+}
+/* =========================== Aljoury End =========================== */
+
 
 /*-------------------------------TALA'S LOG IN/SIGN UP RULES-------------------------*/
 
