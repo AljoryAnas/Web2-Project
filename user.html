@@ -6,7 +6,7 @@
 
   <style>
 body {
-  font-family: system-ui, Arial, sans-serif; /*before: Arial, sans-serif;*/
+  font-family: system-ui, Arial, sans-serif; 
   background-color: #E9F4FA;
   margin: 0;
   padding: 0;
@@ -24,14 +24,33 @@ header {
 
 header h2 {
   margin: 0;
-  color: #619643;
+  color: #343462; /
+}
+
+.welcome {
+  font-size: 22px;
+  animation: colorChange 6s infinite;
+}
+
+@keyframes colorChange {
+  0%   { color: #619643; }   
+  33%  { color: #343462; }  
+  66%  { color: #F98F1E; }  
+  100% { color: #619643; }  
 }
 
 .brand {
   color: #F98F1E;
-  font-size: 19px;
+  font-size: 16px;
   vertical-align: bottom;
   font-weight: 600;
+}
+
+.brand2 {
+  color: #619643;
+  font-size: 18px;
+  vertical-align: bottom;
+  font-weight: 700;
 }
 
 header a {
@@ -139,8 +158,8 @@ a:hover {
 <body>
 
   <!-- Header -->
-  <header>
-    <h2>Welcome Lama! <span class="brand">| KiddoBites</span></h2>
+  <header> 
+    <h2 class="welcome">Welcome Lama! <span class="brand">| Kiddo</span><span class="brand2">Bites</span></h2>
     <a href="index.html">Log-out</a>
   </header>
 
@@ -194,7 +213,7 @@ a:hover {
           </td>
           <td>
             Cassie Best <br>
-            <img src="images/curly.jpg" alt="Creator">
+            <img src="images/women.png" alt="Creator">
           </td>
           <td>40</td>
           <td>Dessert</td>
@@ -237,10 +256,24 @@ a:hover {
           </td>
           <td>
             Angela Nilsen <br>
-            <img src="images/women.png" alt="Creator">
+            <img src="images/curly.jpg" alt="Creator">
           </td>
           <td>29</td>
           <td>Lunch</td>
+        </tr>
+        <tr>
+          <td>
+            <a href="view-recipe.html">Lighter chicken tacos</a>
+          </td>
+          <td>
+            <img src="images/bircher-museli-with-apple-banana.jpg" alt="Recipe">
+          </td>
+          <td>
+            Justine Pattison <br>
+            <img src="images/women2.png" alt="Creator">
+          </td>
+          <td>38</td>
+          <td>Breakfast</td>
         </tr>
       </table>
     </section>
