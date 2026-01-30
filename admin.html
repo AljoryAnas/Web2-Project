@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard - KiddoBites</title>
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body class="admin-page">
+
+  <header>
+      <h2><span class="brand">Kiddo</span>Bites</h2>
+      <h2 class="welcome">Welcome Admin!</h2>
+      <a href="index.html">Sign-out</a>
+  </header>
+
+  <main class="container">
+    
+    <section class="admin-profile">
+      <h3>Admin Information</h3>
+      <div class="user-info">
+        <div class="admin-details">
+          <p><strong>Name:</strong> Admin User</p>
+          <p><strong>Email:</strong> admin@kiddobites.com</p>
+        </div>
+        <img src="images/chefLogo.png" alt="Admin" class="admin-logo-img">
+      </div>
+    </section>
+
+    <section class="reports-section">
+      <h3 class="alert-title">Pending Recipe Reports 🚩</h3>
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Recipe Name</th>
+            <th>Creator</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="view-recipe.html">Spicy Chili Surprise</a></td>
+            <td>
+               <img src="images/man.png" alt="User" class="table-avatar"> Barney D.
+            </td>
+            <td>
+              <form class="admin-actions-form">
+                <button type="submit" class="btn-block">Confirm & Block</button>
+                <button type="submit" class="btn-dismiss">Dismiss</button>
+              </form>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="blocked-section">
+      <h3>Blocked Users 🚫</h3>
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>User Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John Doe</td>
+            <td>john@example.com</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 KiddoBites — Healthy Yummies for Tiny Tummies</p>
+  </footer>
+
+</body>
+</html>
