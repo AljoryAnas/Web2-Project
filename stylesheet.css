@@ -463,10 +463,9 @@ button:hover {
 
 /* Admin Specific */
 .admin-logo-img {
-  width: 80px;
-  background: #f9f9f9;
-  padding: 10px;
-  border-radius: 10px;
+  width: 120px;
+  border-radius: 50%;
+  border: 3px solid #D7E6EF;
 }
 
 .alert-title {
