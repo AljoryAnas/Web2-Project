@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Add Recipe - KiddoBites</title>
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body class="add-recipe-page">
+
+  <header>
+    <h2><span class="brand">Kiddo</span>Bites</h2>
+    <h2 class="welcome">Add New Recipe</h2>
+
+    <nav>
+      <a href="my-recipes.html" class="my-recipes-link">My Recipes</a>
+      &nbsp; | &nbsp;
+      <a href="index.html">Log-out</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <section>
+      <h3>Add New Recipe</h3>
+      <p>Please fill in the details below to share your recipe.</p>
+
+      <form id="addRecipeForm" action="my-recipes.html" method="GET" enctype="multipart/form-data">
+
+        <p>
+          <label for="recipeName">Recipe Name</label><br>
+          <input type="text" id="recipeName" name="recipeName" required>
+        </p>
+
+        <p>
+          <label for="category">Category</label><br>
+          <select id="category" name="category" required>
+            <option value="" selected disabled>Select category</option>
+            <option value="Breakfast">Breakfast</option>
+            <option value="Lunch">Lunch</option>
+            <option value="Desserts">Desserts</option>
+            <option value="Snacks">Snacks</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="description">Description</label><br>
+          <textarea id="description" name="description" rows="4" required></textarea>
+        </p>
+
+        <p>
+          <label for="photo">Upload Recipe Photo</label><br>
+          <input type="file" id="photo" name="photo" accept="image/*" required>
+        </p>
+
+        <hr>
+
+        <h3>Ingredients</h3>
+        <p class="hint">Add ingredient name + quantity. (At least one is required)</p>
+
+        <div id="ingredientsContainer">
+          <div class="row ingredient-row">
+            <div class="col">
+              <label>Ingredient Name</label><br>
+              <input type="text" name="ingredientName[]" required>
+            </div>
+
+            <div class="col">
+              <label>Quantity</label><br>
+              <input type="text" name="ingredientQty[]" required>
+            </div>
+
+            <div class="col small">
+              <label>&nbsp;</label><br>
+              <button type="button" class="btn-secondary" disabled title="First ingredient can't be removed">Remove</button>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          <button type="button" id="addIngredientBtn" class="btn-secondary">+ Add another ingredient</button>
+        </p>
+
+        <hr>
+
+        <h3>Instructions</h3>
+        <p class="hint">Add steps. (At least one step is required)</p>
+
+        <div id="stepsContainer">
+          <div class="row step-row">
+            <div class="col wide">
+              <label>Step 1</label><br>
+              <input type="text" name="stepText[]" required>
+            </div>
+
+            <div class="col small">
+              <label>&nbsp;</label><br>
+              <button type="button" class="btn-secondary" disabled title="First step can't be removed">Remove</button>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          <button type="button" id="addStepBtn" class="btn-secondary">+ Add another step</button>
+        </p>
+
+        <hr>
+
+        <h3>Video (Optional)</h3>
+
+        <p>
+          <label for="videoFile">Upload Video File (optional)</label><br>
+          <input type="file" id="videoFile" name="videoFile" accept="video/*">
+        </p>
+
+        <p>
+          <label for="videoUrl">Video URL (optional)</label><br>
+          <input type="url" id="videoUrl" name="videoUrl" placeholder="https://youtube.com/...">
+        </p>
+
+        <p>
+          <button type="submit">Add Recipe</button>
+          <a href="my-recipes.html" class="btn-cancel">Cancel</a>
+        </p>
+
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 KiddoBites — Healthy Yummies for Tiny Tummies</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
