@@ -491,4 +491,222 @@ button:hover {
 
 /* =========================== Maryam End =========================== */
 
+/* ===== Khadijah Start ===== */
+/* ===== Start My Recipes Page ===== */
+.my-recipes-page .my-recipes-top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.my-recipes-page .add-new-link{
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background-color: #F98F1E;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  box-shadow: 0 6px 14px rgba(65,116,153,0.18);
+}
+
+.my-recipes-page .add-new-link:hover{
+  background-color: #619643;
+}
+
+.my-recipes-page .recipe-cell{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.my-recipes-page .recipe-cell img{
+  width: 80px;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid #D7E6EF;
+}
+
+.my-recipes-page .no-video{
+  color: #777;
+  font-style: italic;
+}
+
+.my-recipes-page table.my-recipes-table td.left{
+  text-align: left !important;
+  vertical-align: top;
+}
+
+.my-recipes-page table.my-recipes-table td.left ul,
+.my-recipes-page table.my-recipes-table td.left ol{
+  margin: 0 !important;
+  padding-left: 18px !important;
+  text-align: left !important;
+  display: block !important;
+}
+
+.my-recipes-page table.my-recipes-table td.left li{
+  margin: 0 0 6px 0 !important;
+  padding: 0 !important;
+  line-height: 1.6;
+}
+/* ===== End My Recipes Page ===== */
+
+/* ===== Start Add Recipe Page  ===== */
+.add-recipe-page textarea{
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  border: 2px solid #dbeafe;
+  outline: none;
+  background: #fbfdff;
+  font-size: 1rem;
+}
+
+.add-recipe-page textarea:focus{
+  border-color: #51b7cc;
+  box-shadow: 0 0 0 4px rgba(236, 133, 227, 0.12);
+}
+
+.add-recipe-page select{
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  border: 2px solid #dbeafe;
+  background: #fbfdff;
+}
+
+.add-recipe-page hr{
+  border: 0;
+  border-top: 2px solid #D7E6EF;
+  margin: 18px 0;
+}
+
+.add-recipe-page .hint{
+  margin-top: -6px;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.add-recipe-page .row{
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 12px;
+  align-items: end;
+  margin: 10px 0;
+}
+
+.add-recipe-page .row .col.small{
+  width: 110px;
+}
+
+.add-recipe-page .row .col.wide{
+  grid-column: 1 / span 2;
+}
+
+.add-recipe-page .btn-secondary{
+  background-color: #EAF4FB;
+  color: #2b2b5a;
+  border: 1px solid #D7E6EF;
+}
+
+.add-recipe-page .btn-secondary:hover{
+  background-color: #D7E6EF;
+  color: #2b2b5a;
+}
+
+.add-recipe-page .btn-cancel{
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #D7E6EF;
+  background: #fff;
+  color: #2b2b5a;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.add-recipe-page .btn-cancel:hover{
+  color: #F98F1E;
+}
+/* ===== End Add Recipe Page ===== */
+
+/* ===== Start Edit Recipe Page ===== */
+.edit-recipe-page textarea,
+.edit-recipe-page select{
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  border: 2px solid #dbeafe;
+  background: #fbfdff;
+}
+
+.edit-recipe-page textarea:focus,
+.edit-recipe-page select:focus{
+  border-color: #51b7cc;
+  box-shadow: 0 0 0 4px rgba(236, 133, 227, 0.12);
+}
+
+.edit-recipe-page hr{
+  border: 0;
+  border-top: 2px solid #D7E6EF;
+  margin: 18px 0;
+}
+
+.edit-recipe-page .hint{
+  margin-top: -6px;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.edit-recipe-page .row{
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 12px;
+  align-items: end;
+  margin: 10px 0;
+}
+
+.edit-recipe-page .row .col.small{
+  width: 110px;
+}
+
+.edit-recipe-page .row .col.wide{
+  grid-column: 1 / span 2;
+}
+
+.edit-recipe-page .btn-secondary{
+  background-color: #EAF4FB;
+  color: #2b2b5a;
+  border: 1px solid #D7E6EF;
+}
+
+.edit-recipe-page .btn-secondary:hover{
+  background-color: #D7E6EF;
+  color: #2b2b5a;
+}
+
+.edit-recipe-page .btn-cancel{
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #D7E6EF;
+  background: #fff;
+  color: #2b2b5a;
+  text-decoration: none;
+  font-weight: 700;
+}
+.edit-recipe-page .btn-cancel:hover{
+  color: #F98F1E;
+}
+/* ===== End Edit Recipe Page ===== */
+/* ===== Khadijah End ===== */
 
