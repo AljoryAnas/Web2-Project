@@ -213,11 +213,11 @@ footer {
 /* Signup button */
 .SignUpPage-Tala button[type="submit"]{
   width: 100%;
-  background: #47ac28;
+  background: #619643;
   color: white;
 }
 .SignUpPage-Tala button[type="submit"]:hover{
-  background: #cf8216;
+  background: #F98F1E;
   filter: brightness(0.95);
 }
 
@@ -229,11 +229,11 @@ footer {
 }
 
 .LogInPage-Tala button[formaction="user.html"]{
-  background: #cf8216;
+  background: #F98F1E;
   color: white;
 }
 .LogInPage-Tala button[formaction="admin.html"]{
-  background: #47ac28;
+  background: #619643;
   color: white;
 }
 
@@ -251,7 +251,7 @@ footer {
 
 .SignUpPage-Tala .login-link a,
 .LogInPage-Tala .signup-link a {
-  color: #1e7d3a;
+  color: #619643;
   font-weight: 700;
   text-decoration: none;
 }
@@ -481,6 +481,7 @@ button:hover {
 
 .btn-fav { background-color: #F98F1E; }
 .btn-like { background-color: #619643; }
+.btn-like:hover { background-color: #F98F1E; }
 .btn-report { background-color: #d9534f; } 
 
 
