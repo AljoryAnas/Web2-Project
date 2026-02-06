@@ -484,36 +484,46 @@ button:hover {
 .btn-report { background-color: #d9534f; } 
 
 
+/*form*/
 .admin-decision-form {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  align-items: flex-start;
+  gap: 25px; 
 }
 
 .radio-options {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  font-size: 0.85rem;
+  gap: 4px; 
 }
 
-.radio-options input[type="radio"] {
-  accent-color: #F98F1E; 
-  vertical-align: middle;
+.radio-options label {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.radio-options input {
+  margin: 0 8px 0 0; 
+  accent-color: #F98F1E;
 }
 
 .btn-submit-admin {
-  background-color: #619643; 
+  background-color: #F98F1E;
   color: white;
   border: none;
-  padding: 5px 10px;
+  padding: 5px 15px;
   border-radius: 5px;
   cursor: pointer;
-  font-weight: bold;
+  width: fit-content;
 }
 
 .btn-submit-admin:hover {
-  background-color: #2b2b5a; 
+  background-color: #619643;
 }
 
 /* =========================== Maryam End =========================== */
