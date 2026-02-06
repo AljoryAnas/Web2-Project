@@ -9,25 +9,25 @@
 
   <header>
       <h2><span class="brand">Kiddo</span>Bites</h2>
-      <h2 class="welcome">Welcome Admin!</h2>
+      <h2 class="welcome">Welcome Maryam!</h2>
       <a href="index.html">Log-out</a>
   </header>
 
   <main class="container">
     
     <section class="admin-profile">
-      <h3>Admin Information</h3>
+      <h3>My Information</h3>
       <div class="user-info">
         <div class="admin-details">
-          <p><strong>Name:</strong> Admin User</p>
-          <p><strong>Email:</strong> admin@kiddobites.com</p>
+          <p><strong>Name:</strong> Maryam</p>
+          <p><strong>Email:</strong> Maryam@gmail.com</p>
         </div>
         <img src="images/chefLogo.png" alt="Admin" class="admin-logo-img">
       </div>
     </section>
 
     <section class="reports-section">
-      <h3 class="alert-title">Pending Recipe Reports 🚩</h3>
+      <h3 class="alert-title">Pending Recipe Reports</h3>
       <table class="admin-table">
         <thead>
           <tr>
@@ -44,9 +44,12 @@
              <img src="images/man.png" alt="Creator">
             </td>
             <td>
-              <form class="admin-actions-form">
-                <button type="submit" class="btn-block">Confirm & Block</button>
-                <button type="submit" class="btn-dismiss">Dismiss</button>
+              <form class="admin-decision-form">
+                <div class="radio-options">
+                  <label><input type="radio" name="report-action" value="block" required> Confirm & Block User</label>
+                  <label><input type="radio" name="report-action" value="dismiss"> Dismiss Report</label>
+                </div>
+                <button type="submit" class="btn-submit-admin">Submit</button>
               </form>
             </td>
           </tr>
@@ -55,7 +58,7 @@
     </section>
 
     <section class="blocked-section">
-      <h3>Blocked Users 🚫</h3>
+      <h3>Blocked Users</h3>
       <table class="admin-table">
         <thead>
           <tr>
@@ -66,7 +69,7 @@
         <tbody>
           <tr>
             <td>John Doe</td>
-            <td>john@example.com</td>
+            <td>john@gmail.com</td>
           </tr>
         </tbody>
       </table>

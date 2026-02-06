@@ -477,17 +477,44 @@ button:hover {
   border-collapse: collapse;
 }
 
-.btn-block {
-  background-color: #d9534f;
-}
 
-.btn-dismiss {
-  background-color: #999;
-}
 
 .btn-fav { background-color: #F98F1E; }
 .btn-like { background-color: #619643; }
 .btn-report { background-color: #d9534f; } 
+
+
+.admin-decision-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.radio-options {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+}
+
+.radio-options input[type="radio"] {
+  accent-color: #F98F1E; 
+  vertical-align: middle;
+}
+
+.btn-submit-admin {
+  background-color: #619643; 
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-submit-admin:hover {
+  background-color: #2b2b5a; 
+}
 
 /* =========================== Maryam End =========================== */
 
