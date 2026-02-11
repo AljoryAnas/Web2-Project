@@ -165,7 +165,7 @@ footer {
   color: #2b2b5a;
 }
 
-/* Label + spacing */
+/* Label & spacing */
 .SignUpPage-Tala label,
 .LogInPage-Tala label{
   font-weight: 700;
@@ -261,9 +261,8 @@ footer {
   text-decoration: underline;
 }
 
-/* Decorative character image */
-.SignUpPage-Tala main,
-.LogInPage-Tala main {
+/* character image */
+.auth-card{
   position: relative; 
 }
 
