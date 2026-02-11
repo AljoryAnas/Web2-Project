@@ -165,7 +165,7 @@ footer {
   color: #2b2b5a;
 }
 
-/* Label & spacing */
+/* Label + spacing */
 .SignUpPage-Tala label,
 .LogInPage-Tala label{
   font-weight: 700;
@@ -213,11 +213,11 @@ footer {
 /* Signup button */
 .SignUpPage-Tala button[type="submit"]{
   width: 100%;
-  background: #619643;
+  background: #47ac28;
   color: white;
 }
 .SignUpPage-Tala button[type="submit"]:hover{
-  background: #F98F1E;
+  background: #cf8216;
   filter: brightness(0.95);
 }
 
@@ -229,11 +229,11 @@ footer {
 }
 
 .LogInPage-Tala button[formaction="user.html"]{
-  background: #F98F1E;
+  background: #cf8216;
   color: white;
 }
 .LogInPage-Tala button[formaction="admin.html"]{
-  background: #619643;
+  background: #47ac28;
   color: white;
 }
 
@@ -251,7 +251,7 @@ footer {
 
 .SignUpPage-Tala .login-link a,
 .LogInPage-Tala .signup-link a {
-  color: #619643;
+  color: #1e7d3a;
   font-weight: 700;
   text-decoration: none;
 }
@@ -261,8 +261,9 @@ footer {
   text-decoration: underline;
 }
 
-/* character image */
-.auth-card{
+/* Decorative character image */
+.SignUpPage-Tala main,
+.LogInPage-Tala main {
   position: relative; 
 }
 
@@ -476,55 +477,17 @@ button:hover {
   border-collapse: collapse;
 }
 
+.btn-block {
+  background-color: #d9534f;
+}
 
+.btn-dismiss {
+  background-color: #999;
+}
 
 .btn-fav { background-color: #F98F1E; }
 .btn-like { background-color: #619643; }
-.btn-like:hover { background-color: #F98F1E; }
 .btn-report { background-color: #d9534f; } 
-
-
-/*form*/
-.admin-decision-form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 25px; 
-}
-
-.radio-options {
-  display: flex;
-  flex-direction: column;
-  gap: 4px; 
-}
-
-.radio-options label {
-  display: flex;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  font-size: 0.85rem;
-  cursor: pointer;
-}
-
-.radio-options input {
-  margin: 0 8px 0 0; 
-  accent-color: #F98F1E;
-}
-
-.btn-submit-admin {
-  background-color: #F98F1E;
-  color: white;
-  border: none;
-  padding: 5px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  width: fit-content;
-}
-
-.btn-submit-admin:hover {
-  background-color: #619643;
-}
 
 /* =========================== Maryam End =========================== */
 
@@ -633,14 +596,10 @@ button:hover {
 
 .add-recipe-page .row{
   display: grid;
-  grid-template-columns: 1fr 1fr auto;
+  grid-template-columns: 1fr 1fr;
   gap: 12px;
   align-items: end;
   margin: 10px 0;
-}
-
-.add-recipe-page .row .col.small{
-  width: 110px;
 }
 
 .add-recipe-page .row .col.wide{
@@ -674,6 +633,7 @@ button:hover {
 }
 /* ===== End Add Recipe Page ===== */
 
+
 /* ===== Start Edit Recipe Page ===== */
 .edit-recipe-page textarea,
 .edit-recipe-page select{
@@ -706,14 +666,10 @@ button:hover {
 
 .edit-recipe-page .row{
   display: grid;
-  grid-template-columns: 1fr 1fr auto;
+  grid-template-columns: 1fr 1fr;
   gap: 12px;
   align-items: end;
   margin: 10px 0;
-}
-
-.edit-recipe-page .row .col.small{
-  width: 110px;
 }
 
 .edit-recipe-page .row .col.wide{
@@ -741,9 +697,9 @@ button:hover {
   text-decoration: none;
   font-weight: 700;
 }
+
 .edit-recipe-page .btn-cancel:hover{
   color: #F98F1E;
 }
 /* ===== End Edit Recipe Page ===== */
-/* ===== Khadijah End ===== */
 
