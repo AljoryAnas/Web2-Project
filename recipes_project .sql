@@ -1,9 +1,9 @@
-=-- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 5.1.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 17, 2026 at 09:11 PM
+-- Generation Time: Mar 17, 2026 at 10:56 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.3.1
 
@@ -207,11 +207,11 @@ CREATE TABLE `recipe` (
 --
 
 INSERT INTO `recipe` (`id`, `userID`, `categoryID`, `name`, `description`, `photoFileName`, `videoFilePath`) VALUES
-(1, 2, 3, 'Pear & chocolate flapjacks', 'Get ready for a chewy, chocolatey adventure! These Pear & Chocolate Flapjacks are easy to make and delicious.', 'Pear-and-chocolate-flapjacks.jpg', 'video1.mp4'),
-(2, 3, 3, 'Fruity flapjack cookies', 'Tasty fruity cookies that are perfect for kids and easy to prepare.', 'Fruity-flapjack-cookies.jpg', 'video2.mp4'),
-(3, 3, 2, 'Cacio e pepe', 'A simple pasta recipe with cheese and pepper.', 'Cacio-e-Pepe.jpg', 'video3.mp4'),
-(4, 2, 2, 'Lighter chicken tacos', 'Delicious lighter chicken tacos with fresh toppings.', 'lighter-chicken-tacos.jpg', 'video4.mp4'),
-(5, 3, 1, 'Bircher muesli with apple & banana', 'Healthy breakfast recipe made with oats, apple, and banana.', 'bircher-museli-with-apple-banana.jpg', 'video5.mp4');
+(1, 2, 3, 'Pear & chocolate flapjacks', 'Get ready for a chewy, chocolatey adventure! These Pear & Chocolate Flapjacks are easy to make and delicious.', 'Pear-and-chocolate-flapjacks.jpg', NULL),
+(2, 3, 3, 'Fruity flapjack cookies', 'Tasty fruity cookies that are perfect for kids and easy to prepare.', 'Fruity-flapjack-cookies.jpg', NULL),
+(3, 3, 2, 'Cacio e pepe', 'A simple pasta recipe with cheese and pepper.', 'Cacio-e-Pepe.jpg', NULL),
+(4, 2, 2, 'Lighter chicken tacos', 'Delicious lighter chicken tacos with fresh toppings.', 'lighter-chicken-tacos.jpg', NULL),
+(5, 3, 1, 'Bircher muesli with apple & banana', 'Healthy breakfast recipe made with oats, apple, and banana.', 'bircher-museli-with-apple-banana.jpg', NULL);
 
 -- --------------------------------------------------------
 
