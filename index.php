@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>KiddoBites</title>
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body class="home-page">
+
+  <!-- Header -->
+  <header>
+      <h2>
+        <span class="brand">Kiddo</span>Bites
+      </h2>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container home-container">
+
+    <section class="hero">
+      <img src="images/logo.png" alt="KiddoBites Logo" class="hero-logo">
+
+      <h1>Healthy Yummies for Tiny Tummies</h1>
+      <p class="hero-text">
+        Discover fun, nutritious, and kid-approved recipes made with love.
+      </p>
+
+      <div class="home-actions">
+        <a href="login.php" class="btn-main">Log in</a>
+        <p>
+          New User?
+          <a href="signup.php">Sign-up</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 KiddoBites — Healthy Yummies for Tiny Tummies</p>
+  </footer>
+
+</body>
+</html>

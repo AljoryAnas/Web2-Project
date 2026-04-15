@@ -1,0 +1,79 @@
+<?php
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
+ */
+?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Sign Up</title>
+        <link rel="stylesheet" href="stylesheet.css">
+    </head>
+
+
+    <body class="SignUpPage-Tala">
+
+        <!-- Header -->
+        <header>
+            <h2>
+                <span class="brand">Kiddo</span>Bites
+            </h2>
+        </header>
+
+        <main>
+            <div class="auth-card">
+                <h1>Sign Up</h1>
+                <img src="images/chefLogo.png" alt="" class="form-mascot">
+                <?php if (isset($_GET['error'])): ?>
+                    <div class="error-box">
+                        <?php echo htmlspecialchars($_GET['error']); ?>
+                    </div>
+                <?php endif; ?>
+                <form action="signup_handler.php" method="POST" enctype="multipart/form-data">
+                    <p>
+                        <label for="firstName">First Name</label><br>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </p>
+
+                    <p>
+                        <label for="lastName">Last Name</label><br>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </p>
+
+                    <p>
+                        <label for="email">Email Address</label><br>
+                        <input type="email" id="email" placeholder="example@email.com" name="emailAddress" required>
+                    </p>
+
+                    <p>
+                        <label for="password">Password</label><br>
+                        <input type="password" id="password" placeholder="******" name="password" required><!--min-max?-->
+                    </p>
+
+                    <p>
+                        <label for="profileImage">Profile Image (optional)</label><br>
+                        <input type="file" id="profileImage" name="profileImage" accept="image/*">
+                    </p>
+
+                    <p class="login-link">
+                        Already have an account? <a href="login.php">Log in</a>
+                    </p><br>
+
+                    <p>
+                        <button type="submit">Create Account</button>
+                    </p>
+
+                </form>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2026 KiddoBites — Healthy Yummies for Tiny Tummies</p>
+        </footer>
+
+    </body>
+</html>
