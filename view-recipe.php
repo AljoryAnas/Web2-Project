@@ -20,7 +20,6 @@ function resolveFilePath($fileName, $primaryFolder = 'images', $secondaryFolder 
     $secondaryPath = __DIR__ . '/' . $secondaryFolder . '/' . $fileName;
     if (file_exists($secondaryPath)) {
         return $secondaryFolder . '/' . $fileName;
-        $hello = 1;
     }
 
     return $primaryFolder . '/default.png';
