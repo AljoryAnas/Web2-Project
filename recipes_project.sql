@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 16, 2026 at 02:42 PM
+-- Generation Time: Apr 16, 2026 at 08:20 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.3.1
 
@@ -114,9 +114,6 @@ INSERT INTO `ingredients` (`id`, `recipeID`, `ingredientName`, `ingredientQuanti
 (5, 1, 'Pear halves', '4'),
 (6, 1, 'Dark chocolate', '100g'),
 (7, 1, 'Salt', 'A pinch'),
-(8, 2, 'Rolled oats', '200g'),
-(9, 2, 'Dried fruit', '100g'),
-(10, 2, 'Honey', '3 tbsp'),
 (11, 3, 'Spaghetti', '250g'),
 (12, 3, 'Pecorino cheese', '100g'),
 (13, 3, 'Black pepper', '2 tsp'),
@@ -126,7 +123,10 @@ INSERT INTO `ingredients` (`id`, `recipeID`, `ingredientName`, `ingredientQuanti
 (17, 5, 'Oats', '1 cup'),
 (18, 5, 'Milk', '1 cup'),
 (19, 5, 'Banana', '1'),
-(20, 5, 'Apple', '1');
+(20, 5, 'Apple', '1'),
+(33, 2, 'Rolled oats', '200g'),
+(34, 2, 'Dried fruit', '100g'),
+(35, 2, 'Honey', '3 tbsp');
 
 -- --------------------------------------------------------
 
@@ -149,9 +149,6 @@ INSERT INTO `instructions` (`id`, `recipeID`, `step`, `stepOrder`) VALUES
 (1, 1, 'Preheat the oven to 180°C.', 1),
 (2, 1, 'Mix the oats and pears in a large bowl.', 2),
 (3, 1, 'Bake for 20 minutes until golden brown.', 3),
-(4, 2, 'Mix oats with dried fruit and honey.', 1),
-(5, 2, 'Shape into cookies.', 2),
-(6, 2, 'Bake until golden.', 3),
 (7, 3, 'Boil the pasta.', 1),
 (8, 3, 'Mix cheese and pepper.', 2),
 (9, 3, 'Combine with pasta and serve.', 3),
@@ -160,7 +157,10 @@ INSERT INTO `instructions` (`id`, `recipeID`, `step`, `stepOrder`) VALUES
 (12, 4, 'Serve immediately.', 3),
 (13, 5, 'Mix oats with milk.', 1),
 (14, 5, 'Refrigerate overnight.', 2),
-(15, 5, 'Add banana and apple, then serve.', 3);
+(15, 5, 'Add banana and apple, then serve.', 3),
+(28, 2, 'Mix oats with dried fruit and honey.', 1),
+(29, 2, 'Shape into cookies.', 2),
+(30, 2, 'Bake until golden.', 3);
 
 -- --------------------------------------------------------
 
@@ -179,12 +179,10 @@ CREATE TABLE `likes` (
 
 INSERT INTO `likes` (`userID`, `recipeID`) VALUES
 (2, 1),
-(3, 1),
-(2, 2),
+(3, 2),
 (3, 3),
 (2, 4),
-(3, 4),
-(2, 5);
+(3, 5);
 
 -- --------------------------------------------------------
 
@@ -208,7 +206,7 @@ CREATE TABLE `recipe` (
 
 INSERT INTO `recipe` (`id`, `userID`, `categoryID`, `name`, `description`, `photoFileName`, `videoFilePath`) VALUES
 (1, 3, 3, 'Pear & chocolate flapjacks', 'Get ready for a chewy, chocolatey adventure! These Pear & Chocolate Flapjacks are easy to make and delicious.', 'Pear-and-chocolate-flapjacks.jpg', 'https://youtu.be/ejfbKAN7j6A?si=zwPmdqyx-pDRXYH3'),
-(2, 2, 3, 'Fruity flapjack cookies', 'Tasty fruity cookies that are perfect for kids and easy to prepare.', 'Fruity-flapjack-cookies.jpg', 'https://youtu.be/nfLtYKgS3lY?si=U94wGbwm7m1FMiUL'),
+(2, 2, 3, 'Fruity flapjack cookies', 'Tasty fruity cookies that are perfect for kids and easy to prepare.', '69e12c840cdae_Fruity-flapjack-cookies.jpg', 'https://youtu.be/nfLtYKgS3lY?si=U94wGbwm7m1FMiUL'),
 (3, 2, 2, 'Cacio e pepe', 'A simple pasta recipe with cheese and pepper.', 'Cacio-e-Pepe.jpg', 'https://youtu.be/UzhkMm7gV2w?si=t5BLq5mTE7wxdr2w'),
 (4, 3, 2, 'Lighter chicken tacos', 'Delicious lighter chicken tacos with fresh toppings.', 'lighter-chicken-tacos.jpg', 'https://youtu.be/ALeF0GUCSSk?si=A7OnNoP58qlqABHQ'),
 (5, 2, 1, 'Bircher muesli with apple & banana', 'Healthy breakfast recipe made with oats, apple, and banana.', 'bircher-museli-with-apple-banana.jpg', 'https://youtu.be/ngNs73KzFY8?si=auFN7cwVqEub1oaf');
@@ -262,7 +260,7 @@ INSERT INTO `report` (`id`, `userID`, `recipeID`) VALUES
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
-  `userType` varchar(20) NOT NULL,
+  `userType` enum('user','admin') NOT NULL,
   `firstName` varchar(50) NOT NULL,
   `lastName` varchar(50) NOT NULL,
   `emailAddress` varchar(100) NOT NULL,
@@ -277,7 +275,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `userType`, `firstName`, `lastName`, `emailAddress`, `password`, `photoFileName`) VALUES
 (1, 'admin', 'Maryam', 'Almaziad', 'maryam@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'maryam.png'),
 (2, 'user', 'Lama', 'Almubarak', 'lama@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'lama.jpg'),
-(3, 'user', 'Tala', 'Alqahtani', 'tala@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'tala.png');
+(3, 'user', 'Tala', 'Alqahtani', 'tala@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'tala.png'),
+(4, 'user', 'Aljory', 'Anas', 'aljoryle@gmail.com', '$2y$10$fn/0lVJiiJvTAt9Z3mzKzek/XYUIQ34yggQVMbMmMDAXGB6pR9ufG', 'default.jpg');
 
 --
 -- Indexes for dumped tables
@@ -353,7 +352,8 @@ ALTER TABLE `report`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `emailAddress` (`emailAddress`);
+  ADD UNIQUE KEY `emailAddress` (`emailAddress`),
+  ADD KEY `emailAddress_2` (`emailAddress`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -369,25 +369,25 @@ ALTER TABLE `blockeduser`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `ingredients`
 --
 ALTER TABLE `ingredients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `instructions`
 --
 ALTER TABLE `instructions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `recipe`
 --
 ALTER TABLE `recipe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `recipecategory`
@@ -399,13 +399,13 @@ ALTER TABLE `recipecategory`
 -- AUTO_INCREMENT for table `report`
 --
 ALTER TABLE `report`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
