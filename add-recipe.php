@@ -42,8 +42,7 @@ $categoryResult = $conn->query("SELECT * FROM recipecategory");
     <?php echo htmlspecialchars($_GET['error']); ?>
   </div>
 <?php endif; ?>
-      <form id="addRecipeForm" action="add-recipe.php" method="POST" enctype="multipart/form-data">
-
+<form id="addRecipeForm" action="add-recipe-handler.php" method="POST" enctype="multipart/form-data">
         <p>
           <label for="recipeName">Recipe Name</label><br>
           <input type="text" id="recipeName" name="recipeName" required>

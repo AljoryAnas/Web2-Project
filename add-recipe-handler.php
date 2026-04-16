@@ -1,3 +1,10 @@
+<?php
+$allowedRole = 'user';
+require 'auth_guard.php';
+include 'db.php';
+
+$userID = $_SESSION['id'];
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $recipeName = $_POST['recipeName'];
@@ -14,39 +21,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $videoTmp = "";
     $videoUrl = trim($_POST['videoUrl']);
 
-$hasVideoFile = !empty($_FILES['videoFile']['name']);
-$hasVideoUrl = !empty($videoUrl);
+    $hasVideoFile = !empty($_FILES['videoFile']['name']);
+    $hasVideoUrl = !empty($videoUrl);
 
-if ($hasVideoFile && $hasVideoUrl) {
-    $error = urlencode("Please enter either a video file or a video URL, not both.");
-    header("Location: add-recipe.php?error=$error");
-    exit();
-}
+    if ($hasVideoFile && $hasVideoUrl) {
+        $error = urlencode("Please enter either a video file or a video URL, not both.");
+        header("Location: add-recipe.php?error=$error");
+        exit();
+    }
 
-$videoValue = "";
+    $videoValue = "";
 
-if ($hasVideoFile) {
-    $videoName = $_FILES['videoFile']['name'];
-    $videoTmp = $_FILES['videoFile']['tmp_name'];
+    if ($hasVideoFile) {
+        $videoName = $_FILES['videoFile']['name'];
+        $videoTmp = $_FILES['videoFile']['tmp_name'];
 
-    $newVideoName = uniqid() . "_" . basename($videoName);
-    move_uploaded_file($videoTmp, "uploads/" . $newVideoName);
-    $videoValue = $newVideoName;
+        $newVideoName = uniqid() . "_" . basename($videoName);
+        move_uploaded_file($videoTmp, "uploads/" . $newVideoName);
+        $videoValue = $newVideoName;
 
-} elseif ($hasVideoUrl) {
-    $videoValue = $videoUrl;
-}
-move_uploaded_file($photoTmp, "uploads/" . $newPhotoName);
+    } elseif ($hasVideoUrl) {
+        $videoValue = $videoUrl;
+    }
 
-    // insert recipe
+    move_uploaded_file($photoTmp, "uploads/" . $newPhotoName);
+
     $sql = "INSERT INTO recipe (userID, categoryID, name, description, photoFileName, videoFilePath)
-        VALUES ($userID, $categoryID, '$recipeName', '$description', '$newPhotoName', '$videoValue')";
+            VALUES ($userID, $categoryID, '$recipeName', '$description', '$newPhotoName', '$videoValue')";
 
     if ($conn->query($sql) === TRUE) {
 
         $recipeID = $conn->insert_id;
 
-        // insert ingredients
         for ($i = 0; $i < count($_POST['ingredientName']); $i++) {
             $ingredientName = $_POST['ingredientName'][$i];
             $ingredientQty = $_POST['ingredientQty'][$i];
@@ -55,7 +61,6 @@ move_uploaded_file($photoTmp, "uploads/" . $newPhotoName);
                           VALUES ($recipeID, '$ingredientName', '$ingredientQty')");
         }
 
-        // insert instructions
         for ($i = 0; $i < count($_POST['stepText']); $i++) {
             $step = $_POST['stepText'][$i];
             $stepOrder = $i + 1;
@@ -71,3 +76,4 @@ move_uploaded_file($photoTmp, "uploads/" . $newPhotoName);
         echo "Insert failed: " . $conn->error;
     }
 }
+?>
