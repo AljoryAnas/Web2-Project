@@ -70,7 +70,11 @@ $adminPhotoPath = resolveFilePath($admin['photoFileName'], 'images', 'uploads');
   </header>
 
   <main class="container">
-    
+    <?php if (isset($_GET['error'])): ?>
+  <div class="error-box">
+    <?php echo htmlspecialchars($_GET['error']); ?>
+  </div>
+<?php endif; ?>
     <section class="admin-profile">
       <h3>Admin Information</h3>
       <div class="user-info">

@@ -5,8 +5,10 @@ require_once 'db.php';
 $viewerID = (int) $_SESSION['id'];
 $viewerType = $_SESSION['userType'];
 
+$backPage = ($viewerType === 'admin') ? 'admin.php' : 'user.php';
+
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
-    header("Location: user.php?error=Invalid recipe.");
+    header("Location: $backPage?error=Invalid recipe.");
     exit();
 }
 
