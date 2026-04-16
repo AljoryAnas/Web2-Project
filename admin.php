@@ -36,7 +36,7 @@ $blockedResult = $conn->query("SELECT * FROM blockeduser ORDER BY id ASC");
 
 function resolveFilePath($fileName, $primaryFolder = 'images', $secondaryFolder = 'uploads') {
     if (empty($fileName)) {
-        return $primaryFolder . '/default.png';
+        return $primaryFolder . '/default.jpg';
     }
 
     $primaryPath = __DIR__ . '/' . $primaryFolder . '/' . $fileName;
@@ -49,7 +49,7 @@ function resolveFilePath($fileName, $primaryFolder = 'images', $secondaryFolder 
         return $secondaryFolder . '/' . $fileName;
     }
 
-    return $primaryFolder . '/default.png';
+    return $primaryFolder . '/default.jpg';
 }
 
 $adminPhotoPath = resolveFilePath($admin['photoFileName'], 'images', 'uploads');

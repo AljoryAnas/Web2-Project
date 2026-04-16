@@ -9,7 +9,7 @@ $recipeID = isset($_GET['id']) && is_numeric($_GET['id']) ? (int) $_GET['id'] : 
 
 function resolveFilePath($fileName, $primaryFolder = 'images', $secondaryFolder = 'uploads') {
     if (empty($fileName)) {
-        return $primaryFolder . '/default.png';
+        return $primaryFolder . '/default.jpg';
     }
 
     $primaryPath = __DIR__ . '/' . $primaryFolder . '/' . $fileName;
@@ -22,7 +22,7 @@ function resolveFilePath($fileName, $primaryFolder = 'images', $secondaryFolder 
         return $secondaryFolder . '/' . $fileName;
     }
 
-    return $primaryFolder . '/default.png';
+    return $primaryFolder . '/default.jpg';
 }
 
 /* =========================
