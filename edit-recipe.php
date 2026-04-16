@@ -6,12 +6,10 @@ include 'db.php';
 $id = $_GET['id'];
 $userID = $_SESSION['id'];
 
-
-
 // load recipe data
 $result = $conn->query("SELECT * FROM recipe WHERE id=$id AND userID=$userID");
 
-if ($recipeResult->num_rows === 0) {
+if ($result->num_rows === 0) {
     header("Location: my-recipes.php?error=Recipe not found.");
     exit();
 }
@@ -57,8 +55,8 @@ $categoryResult = $conn->query("SELECT * FROM recipecategory");
   </div>
 <?php endif; ?>
 
-      <form id="editRecipeForm" action="edit-recipe.php?id=<?php echo $id; ?>" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="id" value="<?php echo $id; ?>">
+<form id="editRecipeForm" action="edit-recipe-handler.php" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="id" value="<?php echo $id; ?>">
         <p>
           <label for="recipeName">Recipe Name</label><br>
           <input type="text" id="recipeName" name="recipeName" value="<?php echo $recipe['name']; ?>" required>
