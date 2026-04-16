@@ -51,10 +51,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $videoName = $_FILES['videoFile']['name'];
         $videoTmp = $_FILES['videoFile']['tmp_name'];
+      $newVideoName = uniqid() . "_" . basename($videoName);
 
-        move_uploaded_file($videoTmp, "uploads/" . $videoName);
+        move_uploaded_file($videoTmp, "uploads/" . $newVideoName);
 
-        $conn->query("UPDATE recipe SET videoFilePath='$videoName' WHERE id=$id AND userID=$userID");
+        $conn->query("UPDATE recipe SET videoFilePath='$newVideoName' WHERE id=$id AND userID=$userID");
 
         if (!empty($oldVideo) && !filter_var($oldVideo, FILTER_VALIDATE_URL)) {
             $oldVideoPath = "uploads/" . $oldVideo;
