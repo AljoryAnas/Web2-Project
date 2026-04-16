@@ -276,7 +276,6 @@ INSERT INTO `user` (`id`, `userType`, `firstName`, `lastName`, `emailAddress`, `
 (1, 'admin', 'Maryam', 'Almaziad', 'maryam@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'maryam.png'),
 (2, 'user', 'Lama', 'Almubarak', 'lama@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'lama.jpg'),
 (3, 'user', 'Tala', 'Alqahtani', 'tala@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'tala.png'),
-(4, 'user', 'Aljory', 'Anas', 'aljoryle@gmail.com', '$2y$10$fn/0lVJiiJvTAt9Z3mzKzek/XYUIQ34yggQVMbMmMDAXGB6pR9ufG', 'default.jpg');
 
 --
 -- Indexes for dumped tables
