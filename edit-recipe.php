@@ -13,6 +13,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $categoryID = $_POST['category'];
     $description = $_POST['description'];
 
+    $videoUrl = trim($_POST['videoUrl'] ?? '');
+    $hasVideoFile = !empty($_FILES['videoFile']['name']);
+    $hasVideoUrl = !empty($videoUrl);
+
+    if ($hasVideoFile && $hasVideoUrl) {
+        $error = urlencode("Please enter either a video file or a video URL, not both.");
+        header("Location: edit-recipe.php?id=$id&error=$error");
+        exit();
+    }
+
     // update recipe table
     $sql = "UPDATE recipe
             SET name='$recipeName', description='$description', categoryID=$categoryID
@@ -42,8 +52,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-    // update video if new one uploaded
-   $videoUrl = trim($_POST['videoUrl']);
 
     if (!empty($_FILES['videoFile']['name'])) {
         $oldVideoResult = $conn->query("SELECT videoFilePath FROM recipe WHERE id=$id AND userID=$userID");
@@ -146,6 +154,12 @@ $categoryResult = $conn->query("SELECT * FROM recipecategory");
       <h3>Edit Recipe</h3>
       <p>Update the recipe details below, then click <strong>Save Changes</strong>.</p>
 
+<?php if (isset($_GET['error'])): ?>
+  <div class="error-box">
+    <?php echo htmlspecialchars($_GET['error']); ?>
+  </div>
+<?php endif; ?>
+
       <form id="editRecipeForm" action="edit-recipe.php?id=<?php echo $id; ?>" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?php echo $id; ?>">
         <p>
@@ -173,7 +187,13 @@ $categoryResult = $conn->query("SELECT * FROM recipecategory");
         <p>
           <label for="photo">Change Recipe Photo</label><br>
           <input type="file" id="photo" name="photo" accept="image/*">
-          <br><small>Current photo: <?php echo $recipe['photoFileName']; ?></small>
+<br><small>
+  Current photo:
+  <?php
+    $currentPhotoName = $recipe['photoFileName'];
+    echo htmlspecialchars(preg_replace('/^[^_]+_/', '', $currentPhotoName));
+  ?>
+</small>
         </p>
 
         <hr>
@@ -225,10 +245,22 @@ $categoryResult = $conn->query("SELECT * FROM recipecategory");
 
         <h3>Video (Optional)</h3>
 
-        <p>
-          <label for="videoFile">Change Video File (optional)</label><br>
-          <input type="file" id="videoFile" name="videoFile" accept="video/*">
-        </p>
+<p>
+  <label for="videoFile">Change Video File (optional)</label><br>
+  <input type="file" id="videoFile" name="videoFile" accept="video/*">
+  <br>
+<small>
+  Current video:
+  <?php
+    if (!empty($recipe['videoFilePath']) && !filter_var($recipe['videoFilePath'], FILTER_VALIDATE_URL)) {
+        $currentVideoName = $recipe['videoFilePath'];
+        echo htmlspecialchars(preg_replace('/^[^_]+_/', '', $currentVideoName));
+    } else {
+        echo "No uploaded video file";
+    }
+  ?>
+</small>
+</p>
 
         <p>
           <label for="videoUrl">Video URL (optional)</label><br>
