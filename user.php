@@ -77,14 +77,16 @@ $favRecipes = $conn->query($favSql);
       <a href="logout.php">Log-out</a>
   </header>
             <?php if (isset($_GET['error'])): ?>
+
+  <div class="container">
+<?php if (isset($_GET['error'])): ?>
   <div class="error-box">
     <?php echo htmlspecialchars($_GET['error']); ?>
   </div>
 <?php endif; ?>
-  <div class="container">
-
+      <h3>My Informa
     <section>
-      <h3>My Information</h3>
+tion</h3>
       <div class="user-info">
         <div>
           <p><strong>Name:</strong> <?php echo htmlspecialchars($user['firstName'] . ' ' . $user['lastName']); ?></p>
