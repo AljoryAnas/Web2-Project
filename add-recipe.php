@@ -88,7 +88,9 @@ $categoryResult = $conn->query("SELECT * FROM recipecategory");
 <body class="add-recipe-page">
 
   <header>
-    <h2><span class="brand">Kiddo</span>Bites</h2>
+    <a href = "user.php" style = "text-decoration: none;">
+        <h2><span class="brand">Kiddo</span>Bites</h2>
+      </a>
     <h2 class="welcome">Add New Recipe</h2>
 
     <nav>

@@ -127,8 +127,9 @@ $categoryResult = $conn->query("SELECT * FROM recipecategory");
 <body class="edit-recipe-page">
 
   <header>
-    <h2><span class="brand">Kiddo</span>Bites</h2>
-    <h2 class="welcome">Edit Recipe</h2>
+<a href = "user.php" style = "text-decoration: none;">
+        <h2><span class="brand">Kiddo</span>Bites</h2>
+      </a>    <h2 class="welcome">Edit Recipe</h2>
 
     <nav>
       <a href="my-recipes.php" class="my-recipes-link">My Recipes</a>

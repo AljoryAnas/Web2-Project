@@ -17,8 +17,9 @@ $userID = $_SESSION['id'];
 <body class="my-recipes-page">
 
   <header>
-    <h2><span class="brand">Kiddo</span>Bites</h2>
-
+<a href = "user.php" style = "text-decoration: none;">
+        <h2><span class="brand">Kiddo</span>Bites</h2>
+      </a>
     <h2 class="welcome">My Recipes</h2>
 
     <nav>

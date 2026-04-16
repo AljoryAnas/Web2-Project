@@ -156,9 +156,11 @@ if ($showTopButtons) {
 <body class="view-recipe-page">
 
   <header>
-      <h2><span class="brand">Kiddo</span>Bites</h2>
+      <a href = "<?php echo $topReference; ?>" style = "text-decoration: none;">
+        <h2><span class="brand">Kiddo</span>Bites</h2>
+      </a>
        <nav>
-      <a href="user.php" class="my-recipes-link">User Page</a>
+      <a href="<?php echo $topReference; ?>"  class="my-recipes-link"><?php echo $topText; ?></a>
       &nbsp; | &nbsp;
       <a href="logout.php">Log-out</a>
     </nav>
