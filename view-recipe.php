@@ -112,6 +112,13 @@ $showTopButtons = ($viewerType !== 'admin' && $viewerID !== $creatorID);
 $isFavourite = false;
 $isLiked = false;
 $isReported = false;
+$topReference = "admin.php";
+$topText = "Admin Page";
+
+if ($viewerType !== 'admin') {
+    $topReference = "user.php";
+    $topText = "User Page";
+}
 
 if ($showTopButtons) {
     $favStmt = $conn->prepare(
