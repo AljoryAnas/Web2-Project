@@ -533,6 +533,53 @@ button:hover {
   flex-wrap: wrap;
 }
 
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.my-recipes-table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+}
+
+.my-recipes-table th,
+.my-recipes-table td {
+  vertical-align: top;
+  white-space: normal;
+}
+
+.recipe-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 180px;
+}
+
+.recipe-cell img {
+  width: 80px;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid #D7E6EF;
+  flex-shrink: 0;
+}
+
+.my-recipes-table ul,
+.my-recipes-table ol {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.my-recipes-table td {
+  min-width: 120px;
+}
+
+.my-recipes-table td:nth-child(2),
+.my-recipes-table td:nth-child(3) {
+  max-width: 220px;
+}
+
 .my-recipes-page .add-new-link{
   display: inline-block;
   padding: 10px 16px;

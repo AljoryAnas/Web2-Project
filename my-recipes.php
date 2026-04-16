@@ -48,7 +48,7 @@ $userID = $_SESSION['id'];
 
     <section>
       <h3>My Recipes List</h3>
-
+<div class="table-wrapper">
       <table class="my-recipes-table">
         <thead>
           <tr class = "left">
@@ -151,6 +151,7 @@ if ($result->num_rows == 0) {
 ?>
 </tbody>
 </table>
+</div>
 </section>
 </main>
 
