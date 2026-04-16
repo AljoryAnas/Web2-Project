@@ -26,10 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $photoName = $_FILES['photo']['name'];
     $photoTmp = $_FILES['photo']['tmp_name'];
+    $newPhotoName = uniqid() . "_" . basename($photoName);
 
-    move_uploaded_file($photoTmp, "uploads/" . $photoName);
+    move_uploaded_file($photoTmp, "uploads/" . $newPhotoName);
 
-    $conn->query("UPDATE recipe SET photoFileName='$photoName' WHERE id=$id AND userID=$userID");
+    $conn->query("UPDATE recipe SET photoFileName='$newPhotoName' WHERE id=$id AND userID=$userID");
 
     $oldPhotoPath1 = "uploads/" . $oldPhoto;
     $oldPhotoPath2 = "images/" . $oldPhoto;
