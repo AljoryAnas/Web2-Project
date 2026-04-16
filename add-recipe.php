@@ -14,34 +14,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // photo
     $photoName = $_FILES['photo']['name'];
     $photoTmp = $_FILES['photo']['tmp_name'];
+    $newPhotoName = uniqid() . "_" . basename($photoName);
 
     // video (optional)
     $videoName = "";
     $videoTmp = "";
     $videoUrl = trim($_POST['videoUrl']);
 
-    if (!empty($_FILES['videoFile']['name'])) {
-        $videoName = $_FILES['videoFile']['name'];
-        $videoTmp = $_FILES['videoFile']['tmp_name'];
-    }
+$hasVideoFile = !empty($_FILES['videoFile']['name']);
+$hasVideoUrl = !empty($videoUrl);
 
-    // move uploaded files
-    move_uploaded_file($photoTmp, "uploads/" . $photoName);
+if ($hasVideoFile && $hasVideoUrl) {
+    $error = urlencode("Please enter either a video file or a video URL, not both.");
+    header("Location: add-recipe.php?error=$error");
+    exit();
+}
 
-    if ($videoName != "") {
-        move_uploaded_file($videoTmp, "uploads/" . $videoName);
-    }
+$videoValue = "";
 
-    $videoValue = "";
-    if ($videoName != "") {
-        $videoValue = $videoName;
-    } elseif ($videoUrl != "") {
-        $videoValue = $videoUrl;
-    }
+if ($hasVideoFile) {
+    $videoName = $_FILES['videoFile']['name'];
+    $videoTmp = $_FILES['videoFile']['tmp_name'];
+
+    $newVideoName = uniqid() . "_" . basename($videoName);
+    move_uploaded_file($videoTmp, "uploads/" . $newVideoName);
+    $videoValue = $newVideoName;
+
+} elseif ($hasVideoUrl) {
+    $videoValue = $videoUrl;
+}
+move_uploaded_file($photoTmp, "uploads/" . $newPhotoName);
 
     // insert recipe
     $sql = "INSERT INTO recipe (userID, categoryID, name, description, photoFileName, videoFilePath)
-        VALUES ($userID, $categoryID, '$recipeName', '$description', '$photoName', '$videoValue')";
+        VALUES ($userID, $categoryID, '$recipeName', '$description', '$newPhotoName', '$videoValue')";
 
     if ($conn->query($sql) === TRUE) {
 
@@ -105,7 +111,11 @@ $categoryResult = $conn->query("SELECT * FROM recipecategory");
     <section>
       <h3>Add New Recipe</h3>
       <p>Please fill in the details below to share your recipe.</p>
-
+<?php if (isset($_GET['error'])): ?>
+  <div class="error-box">
+    <?php echo htmlspecialchars($_GET['error']); ?>
+  </div>
+<?php endif; ?>
       <form id="addRecipeForm" action="add-recipe.php" method="POST" enctype="multipart/form-data">
 
         <p>

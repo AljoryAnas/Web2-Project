@@ -260,19 +260,65 @@ if ($showTopButtons) {
         </ol>
       </section>
 
-      <section class="recipe-video-section">
-        <h3>Watch How to Make It</h3>
-        <div class="video-placeholder">
-          <?php if (!empty($recipe['videoFilePath'])) { ?>
-            <video width="100%" controls>
-              <source src="videos/<?php echo htmlspecialchars($recipe['videoFilePath']); ?>">
-              Your browser does not support the video tag.
-            </video>
-          <?php } else { ?>
-            <p>📺 No video available for this recipe.</p>
-          <?php } ?>
-        </div>
-      </section>
+<section class="recipe-video-section">
+  <h3>Watch How to Make It</h3>
+  <div class="video-placeholder">
+    <?php if (!empty($recipe['videoFilePath'])) { ?>
+
+<?php if (filter_var($recipe['videoFilePath'], FILTER_VALIDATE_URL)) { ?>
+  <?php
+    $videoUrl = $recipe['videoFilePath'];
+    $youtubeEmbed = '';
+
+    // youtube.com/watch?v=...
+    if (preg_match('/youtube\.com\/watch\?v=([^&]+)/', $videoUrl, $matches)) {
+        $youtubeEmbed = "https://www.youtube.com/embed/" . $matches[1];
+    }
+    // youtu.be/...
+    elseif (preg_match('/youtu\.be\/([^?&]+)/', $videoUrl, $matches)) {
+        $youtubeEmbed = "https://www.youtube.com/embed/" . $matches[1];
+    }
+  ?>
+
+  <?php if ($youtubeEmbed !== '') { ?>
+    <iframe
+      width="100%"
+      height="400"
+      src="<?php echo htmlspecialchars($youtubeEmbed); ?>"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  <?php } else { ?>
+    <p>
+      <a href="<?php echo htmlspecialchars($videoUrl); ?>" target="_blank">
+        Watch video
+      </a>
+    </p>
+  <?php } ?>
+
+<?php } else { ?>
+        <?php
+          $videoPath = "uploads/" . $recipe['videoFilePath'];
+          $videoServerPath = __DIR__ . "/uploads/" . $recipe['videoFilePath'];
+        ?>
+
+        <?php if (file_exists($videoServerPath)) { ?>
+          <video width="100%" controls>
+            <source src="<?php echo htmlspecialchars($videoPath); ?>">
+            Your browser does not support the video tag.
+          </video>
+        <?php } else { ?>
+          <p>📺 No video available for this recipe.</p>
+        <?php } ?>
+      <?php } ?>
+
+    <?php } else { ?>
+      <p>📺 No video available for this recipe.</p>
+    <?php } ?>
+  </div>
+</section>
 
       <section class="comments-area">
         <h3>Comments</h3>
