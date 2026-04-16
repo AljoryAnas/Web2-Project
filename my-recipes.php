@@ -32,6 +32,11 @@ $userID = $_SESSION['id'];
   <main class="container">
 
     <section>
+            <?php if (isset($_GET['error'])): ?>
+  <div class="error-box">
+    <?php echo htmlspecialchars($_GET['error']); ?>
+  </div>
+<?php endif; ?>
       <div class="my-recipes-top">
         <div>
           <h3>Recipes Added By Me</h3>

@@ -80,6 +80,11 @@ $favRecipes = $conn->query($favSql);
   <div class="container">
 
     <section>
+      <?php if (isset($_GET['error'])): ?>
+  <div class="error-box">
+    <?php echo htmlspecialchars($_GET['error']); ?>
+  </div>
+<?php endif; ?>
       <h3>My Information</h3>
       <div class="user-info">
         <div>

@@ -115,8 +115,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // load recipe data
 $result = $conn->query("SELECT * FROM recipe WHERE id=$id AND userID=$userID");
 
-if ($result->num_rows == 0) {
-    die("Recipe not found."); 
+if ($recipeResult->num_rows === 0) {
+    header("Location: my-recipes.php?error=Recipe not found.");
+    exit();
 }
 
 $recipe = $result->fetch_assoc();

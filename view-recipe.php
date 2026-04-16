@@ -5,7 +5,12 @@ require_once 'db.php';
 $viewerID = (int) $_SESSION['id'];
 $viewerType = $_SESSION['userType'];
 
-$recipeID = isset($_GET['id']) && is_numeric($_GET['id']) ? (int) $_GET['id'] : 1;
+if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+    header("Location: user.php?error=Invalid recipe.");
+    exit();
+}
+
+$recipeID = (int) $_GET['id'];
 
 function resolveFilePath($fileName, $primaryFolder = 'images', $secondaryFolder = 'uploads') {
     if (empty($fileName)) {
@@ -51,7 +56,8 @@ $stmt->execute();
 $recipeResult = $stmt->get_result();
 
 if ($recipeResult->num_rows === 0) {
-    die("Recipe not found.");
+    header("Location: user.php?error=Recipe not found.");
+    exit();
 }
 
 $recipe = $recipeResult->fetch_assoc();
