@@ -76,15 +76,14 @@ $favRecipes = $conn->query($favSql);
       <h2 class="welcome">Welcome <?php echo htmlspecialchars($user['firstName']); ?>!</h2>
       <a href="logout.php">Log-out</a>
   </header>
-
-  <div class="container">
-
-    <section>
-      <?php if (isset($_GET['error'])): ?>
+            <?php if (isset($_GET['error'])): ?>
   <div class="error-box">
     <?php echo htmlspecialchars($_GET['error']); ?>
   </div>
 <?php endif; ?>
+  <div class="container">
+
+    <section>
       <h3>My Information</h3>
       <div class="user-info">
         <div>

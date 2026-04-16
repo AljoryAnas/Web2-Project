@@ -28,15 +28,15 @@ $userID = $_SESSION['id'];
       <a href="logout.php">Log-out</a>
     </nav>
   </header>
-
-  <main class="container">
-
-    <section>
             <?php if (isset($_GET['error'])): ?>
   <div class="error-box">
     <?php echo htmlspecialchars($_GET['error']); ?>
   </div>
 <?php endif; ?>
+  <main class="container">
+
+    <section>
+
       <div class="my-recipes-top">
         <div>
           <h3>Recipes Added By Me</h3>
