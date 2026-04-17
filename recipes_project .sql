@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 16, 2026 at 08:20 PM
+-- Generation Time: Apr 17, 2026 at 02:14 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.3.1
 
@@ -206,7 +206,7 @@ CREATE TABLE `recipe` (
 
 INSERT INTO `recipe` (`id`, `userID`, `categoryID`, `name`, `description`, `photoFileName`, `videoFilePath`) VALUES
 (1, 3, 3, 'Pear & chocolate flapjacks', 'Get ready for a chewy, chocolatey adventure! These Pear & Chocolate Flapjacks are easy to make and delicious.', 'Pear-and-chocolate-flapjacks.jpg', 'https://youtu.be/ejfbKAN7j6A?si=zwPmdqyx-pDRXYH3'),
-(2, 2, 3, 'Fruity flapjack cookies', 'Tasty fruity cookies that are perfect for kids and easy to prepare.', '69e12c840cdae_Fruity-flapjack-cookies.jpg', 'https://youtu.be/nfLtYKgS3lY?si=U94wGbwm7m1FMiUL'),
+(2, 2, 3, 'Fruity flapjack cookies', 'Tasty fruity cookies that are perfect for kids and easy to prepare.', 'Fruity-flapjack-cookies.jpg', 'https://youtu.be/nfLtYKgS3lY?si=U94wGbwm7m1FMiUL'),
 (3, 2, 2, 'Cacio e pepe', 'A simple pasta recipe with cheese and pepper.', 'Cacio-e-Pepe.jpg', 'https://youtu.be/UzhkMm7gV2w?si=t5BLq5mTE7wxdr2w'),
 (4, 3, 2, 'Lighter chicken tacos', 'Delicious lighter chicken tacos with fresh toppings.', 'lighter-chicken-tacos.jpg', 'https://youtu.be/ALeF0GUCSSk?si=A7OnNoP58qlqABHQ'),
 (5, 2, 1, 'Bircher muesli with apple & banana', 'Healthy breakfast recipe made with oats, apple, and banana.', 'bircher-museli-with-apple-banana.jpg', 'https://youtu.be/ngNs73KzFY8?si=auFN7cwVqEub1oaf');
@@ -275,7 +275,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `userType`, `firstName`, `lastName`, `emailAddress`, `password`, `photoFileName`) VALUES
 (1, 'admin', 'Maryam', 'Almaziad', 'maryam@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'maryam.png'),
 (2, 'user', 'Lama', 'Almubarak', 'lama@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'lama.jpg'),
-(3, 'user', 'Tala', 'Alqahtani', 'tala@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'tala.png'),
+(3, 'user', 'Tala', 'Alqahtani', 'tala@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'tala.png');
 
 --
 -- Indexes for dumped tables

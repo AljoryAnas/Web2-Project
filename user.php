@@ -75,8 +75,7 @@ $favRecipes = $conn->query($favSql);
       <h2><span class="brand">Kiddo</span>Bites</h2>
       <h2 class="welcome">Welcome <?php echo htmlspecialchars($user['firstName']); ?>!</h2>
       <a href="logout.php">Log-out</a>
-  </header>
-            <?php if (isset($_GET['error'])): ?>
+  </header>          
 
   <div class="container">
 <?php if (isset($_GET['error'])): ?>
@@ -84,9 +83,9 @@ $favRecipes = $conn->query($favSql);
     <?php echo htmlspecialchars($_GET['error']); ?>
   </div>
 <?php endif; ?>
-      <h3>My Informa
+      
     <section>
-tion</h3>
+      <h3>My Information</h3>
       <div class="user-info">
         <div>
           <p><strong>Name:</strong> <?php echo htmlspecialchars($user['firstName'] . ' ' . $user['lastName']); ?></p>
