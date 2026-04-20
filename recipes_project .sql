@@ -22,7 +22,8 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
-
+-- NOTE: Predefined users (Maryam - admin, Lama - user, Tala - user) are manually inserted into the database
+-- with the hashed password "password". New users can register and choose their own passwords.
 --
 -- Table structure for table `blockeduser`
 --
