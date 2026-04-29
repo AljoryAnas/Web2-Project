@@ -4,7 +4,8 @@ require 'auth_guard.php';
 include 'db.php';
 
 if (!isset($_GET['id'])) {
-    die("Invalid request");
+    echo json_encode(false);
+    exit();
 }
 
 $id = $_GET['id'];
@@ -14,7 +15,8 @@ $userID = $_SESSION['id'];
 $result = $conn->query("SELECT * FROM recipe WHERE id=$id AND userID=$userID");
 
 if ($result->num_rows == 0) {
-    die("Access denied");
+   echo json_encode(false);
+    exit();
 }
 
 $recipe = $result->fetch_assoc();
@@ -48,6 +50,6 @@ $conn->query("DELETE FROM report WHERE recipeID=$id");
 $conn->query("DELETE FROM recipe WHERE id=$id AND userID=$userID");
 
 // redirect
-header("Location: my-recipes.php");
+echo json_encode(true);
 exit();
 ?>

@@ -12,6 +12,7 @@ $userID = $_SESSION['id'];
   <meta charset="UTF-8">
   <title>My Recipes - KiddoBites</title>
   <link rel="stylesheet" href="stylesheet.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 
 <body class="my-recipes-page">
@@ -108,7 +109,7 @@ if ($result->num_rows == 0) {
         $likeRes = $conn->query($likeSQL);
         $likes = $likeRes->fetch_assoc()['total'];
 
-        echo "<tr>";
+        echo "<tr id='recipe-row-$recipeID'>";;
 
         $photoPath = "images/" . $row['photoFileName'];
         if (!file_exists($photoPath)) { //COME BACK HERE IF PICS DON'T WORK
@@ -147,7 +148,7 @@ if ($result->num_rows == 0) {
 
         echo "<td>$likes</td>";
         echo "<td><a href='edit-recipe.php?id=$recipeID'>Edit</a></td>";
-        echo "<td><a href='delete-recipe.php?id=$recipeID'>Delete</a></td>";
+        echo "<td><a href='#' class='delete-recipe' data-id='$recipeID'>Delete</a></td>";
 
         echo "</tr>";
     }
@@ -161,6 +162,6 @@ if ($result->num_rows == 0) {
   <footer>
     <p>© 2026 KiddoBites — Healthy Yummies for Tiny Tummies</p>
   </footer>
-
+ <script src="script.js"></script>
 </body>
 </html>

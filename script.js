@@ -118,4 +118,33 @@ enforceAtLeastOneIngredient();
 enforceAtLeastOneStep();
 updateStepLabels();
 
+$(document).ready(function () {
 
+  $(".delete-recipe").click(function (event) {
+    event.preventDefault();
+
+    var recipeID = $(this).data("id");
+
+    if (confirm("Are you sure you want to delete this recipe?")) {
+
+      $.ajax({
+        type: "GET",
+        url: "delete-recipe.php",
+        data: { id: recipeID },
+        success: function (result) {
+
+          var response = JSON.parse(result);
+
+          if (response === true) {
+            $("#recipe-row-" + recipeID).remove();
+          } else {
+            alert("Delete failed.");
+          }
+
+        }
+      });
+
+    }
+  });
+
+});
