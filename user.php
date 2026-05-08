@@ -68,6 +68,38 @@ $favRecipes = $conn->query($favSql);
   <meta charset="UTF-8">
   <title>User Page - KiddoBites</title>
   <link rel="stylesheet" href="stylesheet.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function () {
+
+  $(".remove-favourite").click(function (event) {
+    event.preventDefault();  
+      
+    var link = $(this);
+    var recipeID = link.data("id");
+
+    $.ajax({
+      url: "remove-favourite-ajax.php",
+      type: "POST",
+      data: {
+        recipeID: recipeID
+      },
+      dataType: "json",
+      success: function (response) {
+        if (response === true) {
+          link.closest("tr").remove();
+        } else {
+          alert("Could not remove recipe from favourites.");
+        }
+      },
+      error: function () {
+        alert("AJAX request failed.");
+      }
+    });
+  });
+
+});
+</script>
 </head>
 <body class="user-page">
 
@@ -156,7 +188,7 @@ $favRecipes = $conn->query($favSql);
         <tr>
           <td><a href="view-recipe.php?id=<?php echo $fav['id']; ?>"><?php echo htmlspecialchars($fav['name']); ?></a></td>
           <td><img src="<?php echo resolveFilePath($fav['photoFileName']); ?>" alt="Recipe"></td>
-          <td><a href="remove-favourite.php?id=<?php echo $fav['id']; ?>">Remove</a></td>
+          <td><a href="#" class="remove-favourite" data-id="<?php echo $fav['id']; ?>">Remove</a></td>
         </tr>
         <?php endwhile; ?>
       </table>
