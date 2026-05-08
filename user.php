@@ -79,7 +79,7 @@ $(document).ready(function () {
     var recipeID = link.data("id");
 
     $.ajax({
-      url: "remove_favourite.php",
+      url: "remove-favourite.php",
       type: "POST",
       data: {
         recipeID: recipeID
