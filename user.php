@@ -187,6 +187,7 @@ $(document).ready(function () {
           <th>Photo</th>
           <th>Action</th>
         </tr>
+        <tbody>
         <?php while($fav = $favRecipes->fetch_assoc()): ?>
         <tr>
           <td><a href="view-recipe.php?id=<?php echo $fav['id']; ?>"><?php echo htmlspecialchars($fav['name']); ?></a></td>
@@ -194,6 +195,7 @@ $(document).ready(function () {
           <td><a href="#" class="remove-favourite" data-id="<?php echo $fav['id']; ?>">Remove</a></td>
         </tr>
         <?php endwhile; ?>
+        </tbody>
       </table>
       <?php else: ?>
         <p>No favourites added yet.</p>
