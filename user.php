@@ -79,7 +79,7 @@ $(document).ready(function () {
     var recipeID = link.data("id");
 
     $.ajax({
-      url: "remove-favourite-ajax.php",
+      url: "remove-favourite.php",
       type: "POST",
       data: {
         recipeID: recipeID
@@ -89,7 +89,7 @@ $(document).ready(function () {
         if (response === true) {
           link.closest("tr").remove();
         if ($("#favouritesTable tbody tr").length === 0) {
-          $("#favouritesTable").html("<p>No favourites added yet.</p>");
+          $("#favouritesTable").replaceWith("<p>No favourites added yet.</p>");
         }
         } else {
           alert("Could not remove recipe from favourites.");
