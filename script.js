@@ -118,6 +118,8 @@ enforceAtLeastOneIngredient();
 enforceAtLeastOneStep();
 updateStepLabels();
 
+
+//Delete recipe phase 3
 $(document).ready(function () {
 
   $(".delete-recipe").click(function (event) {
@@ -133,7 +135,11 @@ $(document).ready(function () {
         data: { id: recipeID },
         success: function (result) {
 
-          var response = JSON.parse(result);
+          var response = result;
+
+          if (typeof result === "string") {
+            response = JSON.parse(result);
+          }
 
           if (response === true) {
             $("#recipe-row-" + recipeID).remove();
@@ -148,3 +154,4 @@ $(document).ready(function () {
   });
 
 });
+// end of delete recipe

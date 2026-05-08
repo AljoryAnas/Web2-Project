@@ -109,7 +109,7 @@ if ($result->num_rows == 0) {
         $likeRes = $conn->query($likeSQL);
         $likes = $likeRes->fetch_assoc()['total'];
 
-        echo "<tr id='recipe-row-$recipeID'>";;
+        echo "<tr id='recipe-row-$recipeID'>";
 
         $photoPath = "images/" . $row['photoFileName'];
         if (!file_exists($photoPath)) { //COME BACK HERE IF PICS DON'T WORK
