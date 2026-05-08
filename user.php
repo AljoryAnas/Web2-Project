@@ -88,10 +88,6 @@ $(document).ready(function () {
       success: function (response) {
         if (response === true) {
           link.closest("tr").remove();
-          link.closest("tr").remove();
-          if ($("#favouritesTable tbody tr").length === 0) {
-              $("#favouritesTable").html("<p>No favourites added yet.</p>");
-          }
         } else {
           alert("Could not remove recipe from favourites.");
         }
@@ -182,7 +178,7 @@ $(document).ready(function () {
     <section>
       <h3>My Favourite Recipes <img class="favourite" src="images/heart.png" alt="heart"></h3>
       <?php if ($favRecipes->num_rows > 0): ?>
-      <table id="favouritesTable">
+      <table>
         <tr>
           <th>Recipe Name</th>
           <th>Photo</th>
