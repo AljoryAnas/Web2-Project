@@ -181,23 +181,22 @@ $(document).ready(function () {
     <section>
       <h3>My Favourite Recipes <img class="favourite" src="images/heart.png" alt="heart"></h3>
       <?php if ($favRecipes->num_rows > 0): ?>
-<table id="favouritesTable">
-  <thead>
-    <tr>
-      <th>Recipe Name</th>
-      <th>Photo</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <?php while($fav = $favRecipes->fetch_assoc()): ?>
-    <tr>
-      ...
-    </tr>
-    <?php endwhile; ?>
-  </tbody>
-</table>
+      <table id='favouritesTable'>
+        <tr>
+          <th>Recipe Name</th>
+          <th>Photo</th>
+          <th>Action</th>
+        </tr>
+        <tbody>
+        <?php while($fav = $favRecipes->fetch_assoc()): ?>
+        <tr>
+          <td><a href="view-recipe.php?id=<?php echo $fav['id']; ?>"><?php echo htmlspecialchars($fav['name']); ?></a></td>
+          <td><img src="<?php echo resolveFilePath($fav['photoFileName']); ?>" alt="Recipe"></td>
+          <td><a href="#" class="remove-favourite" data-id="<?php echo $fav['id']; ?>">Remove</a></td>
+        </tr>
+        <?php endwhile; ?>
+        </tbody>
+      </table>
       <?php else: ?>
         <p>No favourites added yet.</p>
       <?php endif; ?>
