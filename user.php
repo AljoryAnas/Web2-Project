@@ -36,29 +36,29 @@ function resolveFilePath($fileName, $primaryFolder = 'images', $secondaryFolder 
 
 $userPhotoPath = resolveFilePath($user['photoFileName'], 'images', 'uploads');
 
-$countRecipes = $conn->query("SELECT COUNT(*) as total FROM Recipe WHERE userID = $userID")->fetch_assoc()['total'];
-$countLikes = $conn->query("SELECT COUNT(*) as total FROM Likes INNER JOIN Recipe ON Likes.recipeID = Recipe.id WHERE Recipe.userID = $userID")->fetch_assoc()['total'];
+$countRecipes = $conn->query("SELECT COUNT(*) as total FROM recipe WHERE userID = $userID")->fetch_assoc()['total'];
+$countLikes = $conn->query("SELECT COUNT(*) as total FROM likes INNER JOIN recipe ON likes.recipeID = recipe.id WHERE recipe.userID = $userID")->fetch_assoc()['total'];
 
 // Filter recipes by category
-$categoriesResult = $conn->query("SELECT * FROM RecipeCategory");
+$categoriesResult = $conn->query("SELECT * FROM recipecategory");
 $selectedCategory = isset($_POST['category']) ? (int)$_POST['category'] : 0;
 
-$recipeSql = "SELECT Recipe.*, RecipeCategory.categoryName, User.firstName, User.lastName, User.photoFileName AS creatorPhoto,
-              (SELECT COUNT(*) FROM Likes WHERE recipeID = Recipe.id) as totalLikes
-              FROM Recipe 
-              INNER JOIN RecipeCategory ON Recipe.categoryID = RecipeCategory.id
-              INNER JOIN User ON Recipe.userID = User.id";
+$recipeSql = "SELECT recipe.*, recipecategory.categoryName, user.firstName, user.lastName, user.photoFileName AS creatorPhoto,
+              (SELECT COUNT(*) FROM likes WHERE recipeID = recipe.id) as totalLikes
+              FROM recipe 
+              INNER JOIN recipecategory ON recipe.categoryID = recipecategory.id
+              INNER JOIN user ON recipe.userID = user.id";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && $selectedCategory > 0) {
-    $recipeSql .= " WHERE Recipe.categoryID = $selectedCategory";
+    $recipeSql .= " WHERE recipe.categoryID = $selectedCategory";
 }
 $allRecipes = $conn->query($recipeSql);
 
 // Fetch favourite recipes
-$favSql = "SELECT Recipe.id, Recipe.name, Recipe.photoFileName 
-           FROM Favourites 
-           INNER JOIN Recipe ON Favourites.recipeID = Recipe.id 
-           WHERE Favourites.userID = $userID";
+$favSql = "SELECT recipe.id, recipe.name, recipe.photoFileName 
+           FROM favourites 
+           INNER JOIN recipe ON favourites.recipeID = recipe.id 
+           WHERE favourites.userID = $userID";
 $favRecipes = $conn->query($favSql);
 ?>
 
