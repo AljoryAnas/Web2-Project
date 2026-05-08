@@ -3,7 +3,7 @@ $allowedRole = 'user';
 require 'auth_guard.php';
 require 'db.php';
 
-=header('Content-Type: application/json');
+header('Content-Type: application/json');
 
 $userID = $_SESSION['id'];
 $recipeID = isset($_POST['recipeID']) ? (int) $_POST['recipeID'] : 0;

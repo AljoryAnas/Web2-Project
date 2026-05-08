@@ -74,12 +74,12 @@ $(document).ready(function () {
 
   $(".remove-favourite").click(function (event) {
     event.preventDefault();  
-      
+
     var link = $(this);
     var recipeID = link.data("id");
 
     $.ajax({
-      url: "remove-favourite-ajax.php",
+      url: "remove-favourite.php",
       type: "POST",
       data: {
         recipeID: recipeID
@@ -88,6 +88,9 @@ $(document).ready(function () {
       success: function (response) {
         if (response === true) {
           link.closest("tr").remove();
+        if ($("#favouritesTable tr").length === 1) {
+          $("#favouritesTable").replaceWith("<p>No favourites added yet.</p>");
+        }
         } else {
           alert("Could not remove recipe from favourites.");
         }
@@ -178,7 +181,7 @@ $(document).ready(function () {
     <section>
       <h3>My Favourite Recipes <img class="favourite" src="images/heart.png" alt="heart"></h3>
       <?php if ($favRecipes->num_rows > 0): ?>
-      <table>
+      <table id='favouritesTable'>
         <tr>
           <th>Recipe Name</th>
           <th>Photo</th>
