@@ -74,12 +74,12 @@ $(document).ready(function () {
 
   $(".remove-favourite").click(function (event) {
     event.preventDefault();  
-      
+
     var link = $(this);
     var recipeID = link.data("id");
 
     $.ajax({
-      url: "remove-favourite-ajax.php",
+      url: "remove_favourite.php",
       type: "POST",
       data: {
         recipeID: recipeID
