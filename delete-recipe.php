@@ -8,7 +8,7 @@ if (!isset($_GET['id'])) {
     exit();
 }
 
-$id = $_GET['id'];
+$id = $_POST['id'];s
 $userID = $_SESSION['id'];
 
 // check ownership

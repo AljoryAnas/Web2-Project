@@ -119,7 +119,7 @@ enforceAtLeastOneStep();
 updateStepLabels();
 
 
-//Delete recipe phase 3
+//Delete recipe phase 3s
 $(document).ready(function () {
 
   $(".delete-recipe").click(function (event) {
@@ -129,26 +129,19 @@ $(document).ready(function () {
 
     if (confirm("Are you sure you want to delete this recipe?")) {
 
-      $.ajax({
-        type: "GET",
-        url: "delete-recipe.php",
-        data: { id: recipeID },
-        success: function (result) {
-
-          var response = result;
-
-          if (typeof result === "string") {
-            response = JSON.parse(result);
-          }
-
-          if (response === true) {
-            $("#recipe-row-" + recipeID).remove();
-          } else {
-            alert("Delete failed.");
-          }
-
+    $.ajax({
+      type: "POST",
+      url: "delete-recipe.php",
+      data: { id: recipeID },
+      dataType: "json",          // 👈 add this
+      success: function (response) {
+        if (response === true) {
+          $("#recipe-row-" + recipeID).remove();
+        } else {
+          alert("Delete failed.");
         }
-      });
+      }
+    });
 
     }
   });
