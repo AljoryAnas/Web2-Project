@@ -88,6 +88,9 @@ $(document).ready(function () {
       success: function (response) {
         if (response === true) {
           link.closest("tr").remove();
+        if ($("#favouritesTable tbody tr").length === 0) {
+          $("#favouritesTable").html("<p>No favourites added yet.</p>");
+        }
         } else {
           alert("Could not remove recipe from favourites.");
         }
