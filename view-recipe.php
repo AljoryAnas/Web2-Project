@@ -181,22 +181,22 @@ if ($showTopButtons) {
       <div class="recipe-top-actions">
 
         <form action="add-favourite.php" method="POST" style="display:inline;">
-          <input type="hidden" name="recipeID" value="<?php echo $recipeID; ?>">
-          <button type="submit" class="btn-fav" <?php echo $isFavourite ? 'disabled' : ''; ?>>
+          <input  type="hidden" name="recipeID" value="<?php echo $recipeID; ?>">
+          <button id="favBtn" type="button" class="btn-fav" <?php echo $isFavourite ? 'disabled' : ''; ?>>
             ⭐ <?php echo $isFavourite ? 'Already in Favourites' : 'Add to Favourites'; ?>
           </button>
         </form>
 
         <form action="add-like.php" method="POST" style="display:inline;">
           <input type="hidden" name="recipeID" value="<?php echo $recipeID; ?>">
-          <button type="submit" class="btn-like" <?php echo $isLiked ? 'disabled' : ''; ?>>
+          <button id="likeBtn" type="button" class="btn-like" <?php echo $isLiked ? 'disabled' : ''; ?>>
             ❤️ <?php echo $isLiked ? 'Liked' : 'Like'; ?>
           </button>
         </form>
 
         <form action="add-report.php" method="POST" style="display:inline;">
-          <input type="hidden" name="recipeID" value="<?php echo $recipeID; ?>">
-          <button type="submit" class="btn-report" <?php echo $isReported ? 'disabled' : ''; ?>>
+          <input  type="hidden" name="recipeID" value="<?php echo $recipeID; ?>">
+          <button id="reportBtn" type="button" class="btn-report" <?php echo $isReported ? 'disabled' : ''; ?>>
             🚩 <?php echo $isReported ? 'Reported' : 'Report'; ?>
           </button>
         </form>
@@ -366,6 +366,50 @@ if ($showTopButtons) {
   <footer>
     <p>© 2026 KiddoBites — Healthy Yummies for Tiny Tummies</p>
   </footer>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
 
+    $("#favBtn").click(function(){
+        $.ajax({
+            url: "add-favourite.php",
+            type: "POST",
+            data: { recipeID: <?php echo $recipeID; ?> },
+            success: function(response){
+                if(response.trim() == "true"){
+                    $("#favBtn").prop("disabled", true).text("⭐ Already in Favourites");
+                }
+            }
+        });
+    });
+
+    $("#likeBtn").click(function(){
+        $.ajax({
+            url: "add-like.php",
+            type: "POST",
+            data: { recipeID: <?php echo $recipeID; ?> },
+            success: function(response){
+                if(response.trim() == "true"){
+                    $("#likeBtn").prop("disabled", true).text("❤️ Liked");
+                }
+            }
+        });
+    });
+
+    $("#reportBtn").click(function(){
+        $.ajax({
+            url: "add-report.php",
+            type: "POST",
+            data: { recipeID: <?php echo $recipeID; ?> },
+            success: function(response){
+                if(response.trim() == "true"){
+                    $("#reportBtn").prop("disabled", true).text("🚩 Reported");
+                }
+            }
+        });
+    });
+
+});
+</script>
 </body>
 </html>
