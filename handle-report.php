@@ -4,7 +4,8 @@ require_once 'auth_guard.php';
 require_once 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    die("Invalid request.");
+    echo 'false';
+    exit();
 }
 
 $reportID = isset($_POST['reportID']) ? (int) $_POST['reportID'] : 0;
@@ -12,7 +13,8 @@ $recipeID = isset($_POST['recipeID']) ? (int) $_POST['recipeID'] : 0;
 $action = isset($_POST['action']) ? $_POST['action'] : '';
 
 if ($reportID <= 0 || $recipeID <= 0 || ($action !== 'block' && $action !== 'dismiss')) {
-    die("Invalid data.");
+    echo 'false';
+    exit();
 }
 
 /* =========================
@@ -30,8 +32,9 @@ if ($action === 'dismiss') {
         die("Dismiss failed: " . $conn->error);
     }
 
-    header("Location: admin.php");
+    echo 'true';
     exit();
+
 }
 
 /* =========================
@@ -162,6 +165,6 @@ $deleteCurrentReportStmt = $conn->prepare("DELETE FROM report WHERE id = ?");
 $deleteCurrentReportStmt->bind_param("i", $reportID);
 $deleteCurrentReportStmt->execute();
 
-header("Location: admin.php");
+echo 'true';
 exit();
 ?>
