@@ -133,7 +133,7 @@ $(document).ready(function () {
       type: "POST",
       url: "delete-recipe.php",
       data: { id: recipeID },
-      dataType: "json",          // 👈 add this
+      dataType: "json",          
       success: function (response) {
         if (response === true) {
           $("#recipe-row-" + recipeID).remove();
