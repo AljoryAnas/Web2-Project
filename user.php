@@ -108,7 +108,6 @@ $favRecipes = $conn->query($favSql);
             }
         });
     });
-
     $(".remove-favourite").click(function (event) {
       event.preventDefault();  
       var link = $(this);
@@ -134,40 +133,6 @@ $favRecipes = $conn->query($favSql);
 
   });
   </script>
-<script>
-$(document).ready(function () {
-
-  $(".remove-favourite").click(function (event) {
-    event.preventDefault();  
-
-    var link = $(this);
-    var recipeID = link.data("id");
-
-    $.ajax({
-      url: "remove-favourite.php",
-      type: "POST",
-      data: {
-        recipeID: recipeID
-      },
-      dataType: "json",
-      success: function (response) {
-        if (response === true) {
-          link.closest("tr").remove();
-        if ($("#favouritesTable tr").length === 1) {
-          $("#favouritesTable").replaceWith("<p>No favourites added yet.</p>");
-        }
-        } else {
-          alert("Could not remove recipe from favourites.");
-        }
-      },
-      error: function () {
-        alert("AJAX request failed.");
-      }
-    });
-  });
-
-});
-</script>
 </head>
 
 <body class="user-page">
@@ -253,18 +218,6 @@ $(document).ready(function () {
           </tr>
           <?php endwhile; ?>
         </tbody>
-        <tr>
-          <th>Recipe Name</th>
-          <th>Photo</th>
-          <th>Action</th>
-        </tr>
-        <?php while($fav = $favRecipes->fetch_assoc()): ?>
-        <tr>
-          <td><a href="view-recipe.php?id=<?php echo $fav['id']; ?>"><?php echo htmlspecialchars($fav['name']); ?></a></td>
-          <td><img src="<?php echo resolveFilePath($fav['photoFileName']); ?>" alt="Recipe"></td>
-          <td><a href="#" class="remove-favourite" data-id="<?php echo $fav['id']; ?>">Remove</a></td>
-        </tr>
-        <?php endwhile; ?>
       </table>
       <?php else: ?>
         <p>No favourites added yet.</p>
