@@ -137,6 +137,13 @@ $(document).ready(function () {
       success: function (response) {
         if (response === true) {
           $("#recipe-row-" + recipeID).remove();
+        
+          if ($(".my-recipes-table tbody tr").length === 0) {
+            $(".my-recipes-table tbody").html(
+              "<tr><td colspan='7'>No recipes found.</td></tr>"
+            );
+          }
+
         } else {
           alert("Delete failed.");
         }
