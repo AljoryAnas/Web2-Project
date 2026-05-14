@@ -22,12 +22,14 @@ $checkResult = $checkStmt->get_result();
 if ($checkResult->num_rows == 0) {
     $insertStmt = $conn->prepare("INSERT INTO favourites (userID, recipeID) VALUES (?, ?)");
     $insertStmt->bind_param("ii", $userID, $recipeID);
-
-    if (!$insertStmt->execute()) {
-        die("Error adding favourite: " . $conn->error);
+ if ($insertStmt->execute()) {
+        echo "true";
+    } else {
+        echo "false";
     }
+} else {
+    echo "true";
 }
 
-header("Location: view-recipe.php?id=" . $recipeID);
 exit();
 ?>

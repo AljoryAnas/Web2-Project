@@ -23,11 +23,15 @@ if ($checkResult->num_rows == 0) {
     $insertStmt = $conn->prepare("INSERT INTO likes (userID, recipeID) VALUES (?, ?)");
     $insertStmt->bind_param("ii", $userID, $recipeID);
 
-    if (!$insertStmt->execute()) {
-        die("Error adding like: " . $conn->error);
+     if ($insertStmt->execute()) {
+        echo "true";
+    } else {
+        echo "false";
     }
+
+} else {
+    echo "true";
 }
 
-header("Location: view-recipe.php?id=" . $recipeID);
 exit();
 ?>
