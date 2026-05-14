@@ -3,12 +3,12 @@ $allowedRole = 'user';
 require 'auth_guard.php';
 include 'db.php';
 
-if (!isset($_GET['id'])) {
+if (!isset($_POST['id'])) {
     echo json_encode(false);
     exit();
 }
 
-$id = $_POST['id'];s
+$id = $_POST['id'];
 $userID = $_SESSION['id'];
 
 // check ownership

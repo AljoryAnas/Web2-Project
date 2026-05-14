@@ -736,3 +736,40 @@ button:hover {
   color: #F98F1E;
 }
 /* ===== End Edit Recipe Page ===== */
+
+/*CSS bug fix on header in a few pages*/
+@media (max-width: 700px) {
+  .add-recipe-page header,
+  .edit-recipe-page header {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .add-recipe-page header h2,
+  .edit-recipe-page header h2 {
+    margin: 4px 0;
+    font-size: 24px;
+  }
+
+  .add-recipe-page header .welcome,
+  .edit-recipe-page header .welcome {
+    font-size: 26px;
+  }
+
+  .add-recipe-page header nav,
+  .edit-recipe-page header nav {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 18px;
+  }
+
+  .add-recipe-page header nav a,
+  .edit-recipe-page header nav a {
+    white-space: nowrap;
+  }
+}
+/* END OF CSS bug fix on header in a few pages*/
